@@ -8,4 +8,5 @@
   .plan-item__image {
     display: flex;
     flex-direction: column;
+    cursor: pointer;
     margin: 0 auto; }
