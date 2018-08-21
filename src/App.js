@@ -4,6 +4,8 @@ import PlanCategory from './components/plan_category.js';
 import PlanTitle from './components/plan_title.js';
 // import PlanGoals from './components/plan_goals.js';
 import data from './data/data.json';
+// import './styles/plan_category.css';
+
 
 class App extends Component {
   
@@ -15,7 +17,8 @@ class App extends Component {
     return (
       <div>
         <PlanInfo />
-        <PlanCategory 
+        <PlanCategory
+          // className="plan__category" 
           data={this.state.data} 
         />
         <PlanTitle />

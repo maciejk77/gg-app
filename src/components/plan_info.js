@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../styles/plan_info.css';
 
 class PlanInfo extends Component {
     constructor(props) {
@@ -17,7 +18,7 @@ class PlanInfo extends Component {
 
     render() {
         return (
-            <div>
+            <div className="plan__info">
                 <div>Hi NAME</div>
                 {this.state.isActive &&
                     <div>
