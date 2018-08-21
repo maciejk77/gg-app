@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-//import PlanInfo from './components/plan_info.js';
-// import PlanCategory from './components/plan_category.js';
-// import PlanTitle from './components/plan_title.js';
+import PlanInfo from './components/plan_info.js';
+import PlanCategory from './components/plan_category.js';
+import PlanTitle from './components/plan_title.js';
 import PlanGoals from './components/plan_goals.js';
+import data from './data/data.json';
 
 class App extends Component {
 
   state = {
-    goal : 0,
+    data: data,
+    goal: 0,
     saved: 0,
     date: {
       day: new Date().getDate(),
@@ -45,15 +47,17 @@ class App extends Component {
   }
 
   calculateDaily = () => {
-    
   }
 
   render() {
     return (
       <div>
-        {/*<PlanInfo />
-         <PlanCategory />
-        <PlanTitle />*/}
+        <PlanInfo />
+        <PlanCategory
+          // className="plan__category" 
+          data={this.state.data} 
+        />
+        <PlanTitle />
         <PlanGoals 
           state={this.state}
           changeGoal={this.onGoalChange} 

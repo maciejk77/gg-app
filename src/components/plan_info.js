@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
+import '../styles/plan_info.css';
 
 class PlanInfo extends Component {
-
-    state = {
-        data: null
+    constructor(props) {
+        super(props);
+        this.state = {
+            isActive: false
+        }
+        this.handle_click = this.handle_click.bind(this);
+    }
+   
+    handle_click() {
+        this.setState(prevState => ({
+            isActive: !prevState.isActive
+          }));
     }
 
     render() {
         return (
-            <div>
+            <div className="plan__info">
                 <div>Hi NAME</div>
-                {this.state.data &&
+                {this.state.isActive &&
                     <div>
                         <div>Currently in savings: </div>
                         <div>-------bar here--------</div>
@@ -21,7 +31,7 @@ class PlanInfo extends Component {
                         <div>11%</div>
                     </div>
                 }
-                <button>Adjust my goal</button>
+                <button onClick={this.handle_click}>Adjust my goal</button>
             </div>
         )
     }

@@ -1,0 +1,8 @@
+.plan-category {
+  text-align: center; }
+  .plan-category__list {
+    border: 1px solid green;
+    padding: 1px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2px; }
