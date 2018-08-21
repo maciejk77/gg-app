@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PlanInfo from './components/plan_info.js';
-// import PlanCategory from './components/plan_category.js';
-// import PlanTitle from './components/plan_title.js';
+import PlanCategory from './components/plan_category.js';
+import PlanTitle from './components/plan_title.js';
 // import PlanGoals from './components/plan_goals.js';
 
 class App extends Component {
@@ -9,9 +9,9 @@ class App extends Component {
     return (
       <div>
         <PlanInfo />
-        {/* <PlanCategory />
+        <PlanCategory />
         <PlanTitle />
-        <PlanGoals /> */}
+        {/* <PlanGoals /> */}
       </div>
     );
   }
