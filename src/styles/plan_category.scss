@@ -1,7 +1,11 @@
-.plan__category {
-    border: 1px solid green;
-    padding: 1px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 2px;
+.plan-category {
+    text-align: center;
+    
+    &__list {
+        border: 1px solid green;
+        padding: 1px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 2px;
+    }
 }

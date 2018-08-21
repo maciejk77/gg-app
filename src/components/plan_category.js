@@ -23,8 +23,12 @@ class PlanCategory extends Component {
     }    
     render() {
         return (
-            <div className="plan__category">
-                {this.render_list()}
+            <div className="plan-category">
+                <div>1----2-------3</div>
+                <div>What are you saving for?</div>
+                <div className="plan-category__list">
+                    {this.render_list()}
+                </div>
             </div>
         )
     }
