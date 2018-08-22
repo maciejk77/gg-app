@@ -60,7 +60,6 @@ class App extends Component {
   }
 
   calculateDaily = () => {
-
     const { day, month, year } = this.state.date;
 
     const { goal, saved }  = this.state;
@@ -69,13 +68,13 @@ class App extends Component {
 
     const daysLefts = Math.ceil((date - new Date())/(1000*60*60*24));
 
-    const target = goal ? goal - saved : 0;
+    const target = (goal && goal > saved ) ? goal - saved : 0;
 
     const save_daily = (target / daysLefts || 0).toFixed(2);
 
     if (daysLefts > 0) {
       this.setState({ save_daily });
-    } else if (daysLefts == 0) {
+    } else if (daysLefts === 0) {
       this.setState({ save_daily: target.toFixed(2) });
     } else {
       this.setState({ save_daily: 0.00 });
