@@ -17,6 +17,7 @@ class PlanCategory extends Component {
                     id={item.id}
                     goal={item.goal}
                     source={item.source}
+                    get_title={this.props.get_title}
                 />
             ) 
         });
