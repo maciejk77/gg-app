@@ -17,12 +17,19 @@ class App extends Component {
       year: new Date().getFullYear()
     },
     save_daily: 0,
-    plan_title: ''
+    plan_title: '',
+    plan_subtitle: ''
   }
 
   get_title = (goal) => {
     this.setState({
       plan_title: goal
+    })
+  }
+
+  get_subtitle = (description) => {
+    this.setState({
+      plan_subtitle: description
     })
   }
 
@@ -63,7 +70,11 @@ class App extends Component {
           data={this.state.data} 
           get_title={this.get_title}
         />
-        <PlanTitle />
+        <PlanTitle 
+          plan_title={this.state.plan_title}
+          plan_subtitle={this.state.plan_subtitle}
+          get_subtitle={this.get_subtitle}
+        />
         <PlanGoals 
           state={this.state}
           changeGoal={this.onGoalChange} 
