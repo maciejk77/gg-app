@@ -24,14 +24,14 @@ class App extends Component {
     this.setState({
       ...this.state,
       goal : e.target.value
-    },this.calculateDaily())
+    },this.calculateDaily)
   }
 
   onSavedChange = (e) => {
     this.setState({
       ...this.state,
       saved : e.target.value
-    },this.calculateDaily())
+    },this.calculateDaily)
   }
 
   onDateChange = (e) => {
@@ -43,10 +43,30 @@ class App extends Component {
     this.setState({
       ...this.state,
       date
-    },this.calculateDaily())
+    },this.calculateDaily)
   }
 
   calculateDaily = () => {
+
+    const { day, month, year } = this.state.date;
+
+    const { goal, saved }  = this.state;
+    
+    const date = new Date(year, month, day);
+
+    const daysLefts = Math.ceil((date - new Date())/(1000*60*60*24));
+
+    const target = goal - saved;
+
+    const save_daily = (target / daysLefts || 0).toFixed(2);
+
+    if (daysLefts > 0) {
+      this.setState({ save_daily });
+    } else if (daysLefts == 0) {
+      this.setState({ save_daily: target.toFixed(2) });
+    } else {
+      this.setState({ save_daily: 0.00 });
+    }
   }
 
   render() {
