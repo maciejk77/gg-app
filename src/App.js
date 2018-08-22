@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import PlanInfo from './components/plan_info.js';
-import PlanCategory from './components/plan_category.js';
-import PlanTitle from './components/plan_title.js';
-import PlanGoals from './components/plan_goals.js';
-import data from './data/data.json';
+import React, { Component } from "react";
+import PlanInfo from "./components/plan_info.js";
+import PlanCategory from "./components/plan_category.js";
+import PlanTitle from "./components/plan_title.js";
+import PlanGoals from "./components/plan_goals.js";
+import data from "./data/data.json";
 
 class App extends Component {
-  
   state = {
     data: data,
     goal: 0,
@@ -17,59 +16,68 @@ class App extends Component {
       year: new Date().getFullYear()
     },
     save_daily: 0,
-    plan_title: '',
-    plan_subtitle: ''
-  }
+    plan_title: "",
+    plan_subtitle: ""
+  };
 
-  get_title = (goal) => {
+  get_title = goal => {
     this.setState({
       plan_title: goal
-    })
-  }
+    });
+  };
 
-  get_subtitle = (description) => {
+  get_subtitle = description => {
     this.setState({
       plan_subtitle: description
-    })
-  }
+    });
+  };
 
-  onGoalChange = (e) => {
-    this.setState({
-      ...this.state,
-      goal : e.target.value
-    },this.calculateDaily)
-  }
+  onGoalChange = e => {
+    this.setState(
+      {
+        ...this.state,
+        goal: e.target.value
+      },
+      this.calculateDaily
+    );
+  };
 
-  onSavedChange = (e) => {
-    this.setState({
-      ...this.state,
-      saved : e.target.value
-    },this.calculateDaily)
-  }
+  onSavedChange = e => {
+    this.setState(
+      {
+        ...this.state,
+        saved: e.target.value
+      },
+      this.calculateDaily
+    );
+  };
 
-  onDateChange = (e) => {
+  onDateChange = e => {
     let date = this.state.date;
     const name = e.target.name;
     const value = e.target.value;
     date[name] = value;
-    
-    this.setState({
-      ...this.state,
-      date
-    },this.calculateDaily)
-  }
+
+    this.setState(
+      {
+        ...this.state,
+        date
+      },
+      this.calculateDaily
+    );
+  };
 
   calculateDaily = () => {
     const { day, month, year } = this.state.date;
+    const { goal, saved } = this.state;
 
-    const { goal, saved }  = this.state;
-    
     const date = new Date(year, month, day);
-
-    const daysLefts = Math.ceil((date - new Date())/(1000*60*60*24));
-
-    const target = (goal && goal > saved ) ? goal - saved : 0;
-
+    const daysLefts = Math.ceil((date - new Date()) / (1000 * 60 * 60 * 24));
+    const target =
+      Number(goal) > 0 && Number(goal) > Number(saved)
+        ? Number(goal) - Number(saved)
+        : 0;
+    console.log("target ", target);
     const save_daily = (target / daysLefts || 0).toFixed(2);
 
     if (daysLefts > 0) {
@@ -77,29 +85,26 @@ class App extends Component {
     } else if (daysLefts === 0) {
       this.setState({ save_daily: target.toFixed(2) });
     } else {
-      this.setState({ save_daily: 0.00 });
+      this.setState({ save_daily: 0.0 });
     }
-  }
+  };
 
   render() {
     return (
       <div>
         <PlanInfo />
-        <PlanCategory
-          data={this.state.data} 
-          get_title={this.get_title}
-        />
-        <PlanTitle 
+        <PlanCategory data={this.state.data} get_title={this.get_title} />
+        <PlanTitle
           plan_title={this.state.plan_title}
           plan_subtitle={this.state.plan_subtitle}
           get_subtitle={this.get_subtitle}
         />
-        <PlanGoals 
+        <PlanGoals
           state={this.state}
-          changeGoal={this.onGoalChange} 
-          changeSaved={this.onSavedChange} 
+          changeGoal={this.onGoalChange}
+          changeSaved={this.onSavedChange}
           handleDateChange={this.onDateChange}
-        /> 
+        />
       </div>
     );
   }
