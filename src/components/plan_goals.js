@@ -2,10 +2,8 @@ import React from "react";
 
 const PlanGoals = ({
   state: {
-    plan_title,
     goal,
     saved,
-    date,
     save_daily,
     date: { day, month, year }
   },
@@ -35,23 +33,19 @@ const PlanGoals = ({
 
   const years = Array.from({ length }, (_, i) => {
     return (
-      <option
-        key={i}
-        value={yearMin + i}
-        selected={year === yearMin + i ? "selected" : false}
-      >
+      <option key={i} value={yearMin + i}>
         {yearMin + i}
       </option>
     );
   });
 
   const months = MONTHS.map((month_const, i) => (
-    <option key={i} value={i} selected={month === i ? "selected" : false}>
+    <option key={i} value={i}>
       {month_const}
     </option>
   ));
   const days = Array.from({ length: 31 }, (_, i) => (
-    <option key={i} value={i + 1} selected={day === i + 1 ? "selected" : false}>
+    <option key={i} value={i + 1}>
       {i + 1}
     </option>
   ));
@@ -69,15 +63,15 @@ const PlanGoals = ({
         </div>
 
         <div>
-          <select name="day" onChange={handleDateChange}>
+          <select name="day" value={day} onChange={handleDateChange}>
             {days}
           </select>
 
-          <select name="month" onChange={handleDateChange}>
+          <select name="month" value={month} onChange={handleDateChange}>
             {months}
           </select>
 
-          <select name="year" onChange={handleDateChange}>
+          <select name="year" value={year} onChange={handleDateChange}>
             {years}
           </select>
         </div>
