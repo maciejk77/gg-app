@@ -20,9 +20,9 @@ class App extends Component {
     plan_subtitle: ""
   };
 
-  get_title = goal => {
+  get_title = title => {
     this.setState({
-      plan_title: goal
+      plan_title: title
     });
   };
 
@@ -75,14 +75,25 @@ class App extends Component {
   render() {
     return (
       <div>
-        <PlanInfo />
-        <PlanCategory data={this.state.data} get_title={this.get_title} />
+        <PlanInfo
+          isActive={true} 
+          goal={this.state.goal}
+          saved={this.state.saved}
+          date={this.state.date}
+        />
+        <PlanCategory
+          isActive={false}  
+          data={this.state.data} 
+          get_title={this.get_title} 
+        />
         <PlanTitle
+          isActive={false} 
           plan_title={this.state.plan_title}
           plan_subtitle={this.state.plan_subtitle}
           get_subtitle={this.get_subtitle}
         />
         <PlanGoals
+          isActive={false} 
           state={this.state}
           changeGoal={this.onGoalChange}
           changeSaved={this.onSavedChange}

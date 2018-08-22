@@ -25,10 +25,12 @@ class PlanTitle extends Component {
     }
 
     render() {
+        const { plan_title, plan_subtitle, isActive } = this.props;
+        //if(!isActive) { return null };
         return (
             <div className="plan__title">
-                <div>Goal name: {this.props.plan_title}</div>
-                <div>Goal details: {this.props.plan_subtitle}</div>
+                <div>Goal name: {plan_title}</div>
+                <div>Goal details: {plan_subtitle}</div>
                 <input value={this.state.term} onChange={this.handle_change}/>
                 <button onClick={this.handle_click}>Next</button>
             </div>

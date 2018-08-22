@@ -23,9 +23,10 @@ class PlanCategory extends Component {
         });
     }    
     render() {
+        //if(!this.props.isActive) { return null };
         return (
             <div className="plan-category">
-                <div>1----2-------3</div>
+                <div>1----2-----3</div>
                 <div>What are you saving for?</div>
                 <div className="plan-category__list">
                     {this.render_list()}

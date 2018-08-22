@@ -12,18 +12,8 @@ const PlanGoals = ({
   handleDateChange
 }) => {
   const MONTHS = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "Maj",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec"
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
   ];
 
   const dateNow = new Date();
@@ -49,7 +39,7 @@ const PlanGoals = ({
       {i + 1}
     </option>
   ));
-
+  
   return (
     <div>
       Set your goal
