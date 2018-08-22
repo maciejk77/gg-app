@@ -69,7 +69,7 @@ class App extends Component {
 
     const daysLefts = Math.ceil((date - new Date())/(1000*60*60*24));
 
-    const target = goal - saved;
+    const target = goal ? goal - saved : 0;
 
     const save_daily = (target / daysLefts || 0).toFixed(2);
 
