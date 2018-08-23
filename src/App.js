@@ -19,6 +19,9 @@ class App extends Component {
     plan_title: "",
     plan_subtitle: ""
   };
+  componentDidMount() {
+    this.getStateDataFromLocalStorage();
+  }
 
   get_title = goal => {
     this.setState({
@@ -51,6 +54,7 @@ class App extends Component {
     date[name] = value;
 
     this.setState({ date }, this.calculateDaily);
+    console.log(this.state)
   };
 
   calculateDaily = () => {
@@ -70,7 +74,33 @@ class App extends Component {
     } else {
       this.setState({ save_daily: 0.0 });
     }
+     // save to localStorage 
+    localStorage.setItem('gg-app-local-storage', JSON.stringify(this.state));
   };
+
+  getStateDataFromLocalStorage(){
+
+    let id='gg-app-local-storage';
+    if (localStorage.hasOwnProperty(id)) {
+            //inside state check all the keys 
+      for (let key in this.state) {
+              // if the key exists in localStorage
+          if (localStorage.hasOwnProperty(key)) {
+            // get the key's value from localStorage
+            let value = localStorage.getItem(key);
+
+            // parse the localStorage string and setState
+            try {
+              value = JSON.parse(value);
+              this.setState({ [key]: value });
+            } catch (e) {
+              // handle empty string
+              this.setState({ [key]: value });
+            }
+          }
+      }
+    }
+ };
 
   render() {
     return (
