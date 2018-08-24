@@ -26,7 +26,8 @@ class PlanInfo extends Component {
       isActive
     } = this.props;
 
-    const timeLeft = new Date(year, month, day).getTime();
+    const timeLeft = new Date(year, month, parseInt(day) + 1).getTime();
+    
     //if(!isActive) { return null };
     return (
       <div className="plan__info">
