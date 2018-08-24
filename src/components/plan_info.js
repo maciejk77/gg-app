@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Countdown from "./countdown";
+
+import Countdown from 'react-countdown-to-future-date';
 import "../styles/plan_info.css";
 
 class PlanInfo extends Component {
@@ -24,6 +25,8 @@ class PlanInfo extends Component {
       date: { day, month, year },
       isActive
     } = this.props;
+
+    const timeLeft = new Date(year, month, day).getTime();
     //if(!isActive) { return null };
     return (
       <div className="plan__info">
@@ -39,7 +42,7 @@ class PlanInfo extends Component {
             {day} {month} {year} ----------fix month format and value
           </div>
           <div>DATE 11 mths 22 days 09 hours 54 min</div>
-          <Countdown />
+          <Countdown givenDate = {timeLeft}/>
           {goal ? (
             <div>{Math.floor((saved / goal) * 100)}%</div>
           ) : (
