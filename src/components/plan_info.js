@@ -15,8 +15,17 @@ class PlanInfo extends Component {
             isActive: !prevState.isActive
           }));
     }
+   
+    
 
     render() {
+        const {day, month, year} = this.props.plan_deadLine; 
+        const monthNames = ["Jan", "Feb", "March", "Apr", "May", "Jun",
+                            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+                            ];
+                            
+        const monthName=new Date(year,month,day);
+        const month_Name=monthNames[monthName.getMonth()];          
         return (
             <div className="plan__info">
                 <div>Hi NAME</div>
@@ -24,11 +33,11 @@ class PlanInfo extends Component {
                     <div>
                         <div>Currently in savings: </div>
                         <div>-------bar here--------</div>
-                        <div>164£ of 1400£</div>
+                        <div>{this.props.plan_saved}£ of {this.props.plan_goal}£</div>
                         <div>Time left to hit your saving target: </div>
-                        <div>8 Aug 1019 </div>
+                        <div>{day} {month_Name} {year}</div>
                         <div>DATE 11 mths 22 days 09 hours 54 min</div>
-                        <div>11%</div>
+                        <div>{this.props.plan_saving_percent}%</div>
                     </div>
                 }
                 <button onClick={this.handle_click}>Adjust my goal</button>

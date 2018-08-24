@@ -21,6 +21,11 @@ class App extends Component {
   };
   componentDidMount() {
     this.getStateDataFromLocalStorage();
+    let key='gg-app-local-storage';
+    if (localStorage.hasOwnProperty(key)) {      
+      console.log(localStorage.getItem('gg-app-local-storage'));
+    }
+
   }
 
   get_title = goal => {
@@ -79,25 +84,18 @@ class App extends Component {
   };
 
   getStateDataFromLocalStorage(){
-
-    let id='gg-app-local-storage';
-    if (localStorage.hasOwnProperty(id)) {
-            //inside state check all the keys 
-      for (let key in this.state) {
-              // if the key exists in localStorage
-          if (localStorage.hasOwnProperty(key)) {
-            // get the key's value from localStorage
-            let value = localStorage.getItem(key);
-
-            // parse the localStorage string and setState
-            try {
-              value = JSON.parse(value);
-              this.setState({ [key]: value });
-            } catch (e) {
-              // handle empty string
-              this.setState({ [key]: value });
-            }
-          }
+    let key='gg-app-local-storage';
+    if (localStorage.hasOwnProperty(key)) {
+     const cachedData = localStorage.getItem('gg-app-local-storage');
+      if(cachedData){
+        this.setState({
+          goal: JSON.parse(cachedData).goal,
+          saved: JSON.parse(cachedData).saved,
+          save_daily: JSON.parse(cachedData).save_daily,
+          plan_title: JSON.parse(cachedData).plan_title,
+          plan_subtitle: JSON.parse(cachedData).plan_subtitle,
+          date: JSON.parse(cachedData).date
+        });
       }
     }
  };
@@ -105,7 +103,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <PlanInfo />
+        <PlanInfo 
+        plan_deadLine={this.state.date}
+        plan_goal={this.state.goal}
+        plan_saved={this.state.saved}
+        plan_saving_percent={this.state.save_daily}
+        />
         <PlanCategory data={this.state.data} get_title={this.get_title} />
         <PlanTitle
           plan_title={this.state.plan_title}
