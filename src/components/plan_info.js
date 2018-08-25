@@ -19,13 +19,13 @@ class PlanInfo extends Component {
     return (
       <div className="plan-info">
         <div className="plan-info__name">Hi CustomerNameHere</div>
-        <div><Link to="/category"> Adjust my goal </Link></div>
+        <Link to="/category"> { goal ? 'Adjust' : 'Set' } my goal </Link>
         { goal &&
           <div>
             <div>
               { goal 
-                  ? <div>{Math.floor((saved / goal) * 100)}%</div>
-                  : <div>0%</div>
+                ? <div>{Math.floor((saved / goal) * 100)}%</div>
+                : <div>0%</div>
               }
 
               <div>Currently in savings: </div>
