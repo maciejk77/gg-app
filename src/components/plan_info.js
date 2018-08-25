@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Countdown from 'react-countdown-to-future-date';
 import { Line } from 'rc-progress';
 import "../styles/plan_info.css";
+import moment from 'moment';
 
 class PlanInfo extends Component {
 
@@ -12,8 +13,8 @@ class PlanInfo extends Component {
       date: { day, month, year },
     } = this.props;
 
-    const timeLeft = new Date(year, month, parseInt(day, 10) + 1).getTime();
-    
+    const timeLeft = new Date(year, month, day).getTime();
+
     return (
       <div className="plan-info">
         <div>Hi CustomerNameHere</div>
@@ -28,9 +29,8 @@ class PlanInfo extends Component {
             </div>
             <div>Time left to hit your saving target:</div>
             <div>
-              {day} {parseInt(month, 10) + 1} {year} ----------fix month format and value
+              {moment(timeLeft).format('DD MMMM YYYY')}
             </div>
-            <div>DATE 11 mths 22 days 09 hours 54 min</div>
             <Countdown givenDate = {timeLeft}/>
             { goal 
                 ? <div>{Math.floor((saved / goal) * 100)}%</div>
