@@ -76,7 +76,7 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route path="/info" render={() => {
+          <Route exact path="/" render={() => {
               return (
                 <div>
                   <PlanInfo
@@ -126,7 +126,7 @@ class App extends Component {
                     changeSaved={this.onSavedChange}
                     handleDateChange={this.onDateChange}
                   />
-                  <Link to="/info">Next ></Link>
+                  <Link to="/">Next ></Link>
                 </div>
               )
             }} 
