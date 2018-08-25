@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
 import Countdown from 'react-countdown-to-future-date';
+import { Line } from 'rc-progress';
 import "../styles/plan_info.css";
 
 class PlanInfo extends Component {
@@ -16,11 +16,13 @@ class PlanInfo extends Component {
     
     return (
       <div className="plan-info">
-        <div>Hello Customer</div>
+        <div>Hi CustomerNameHere</div>
         { goal &&
           <div>
             <div>Currently in savings: </div>
-            <div>-------bar here--------</div>
+            <div>
+              <Line percent={Math.floor(saved/goal * 100)} strokeWidth="2" trailWidth="2" strokeColor="pink" />
+            </div>
             <div>
               £{saved} of £{goal}
             </div>
