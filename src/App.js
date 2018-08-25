@@ -4,7 +4,7 @@ import PlanCategory from "./components/plan_category.js";
 import PlanTitle from "./components/plan_title.js";
 import PlanGoal from "./components/plan_goal.js";
 import data from "./data/data.json";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   state = {
