@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PlanItem from './plan_item.js';
 import '../styles/plan_category.css';
+import { Link } from 'react-router-dom';
 
 class PlanCategory extends Component {
     constructor(props) {
@@ -30,6 +31,8 @@ class PlanCategory extends Component {
                 <div className="plan-category__list">
                     {this.render_list()}
                 </div>
+                <Link to="/title"> Next>> </Link>
+                <Link to="/"> Back>> </Link>
             </div>
         )
     }

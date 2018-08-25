@@ -1,5 +1,6 @@
 import React, { Component } from  'react';
 import '../styles/plan_title.css';
+import { Link } from 'react-router-dom';
 
 class PlanTitle extends Component {
   constructor(props) {
@@ -31,7 +32,9 @@ class PlanTitle extends Component {
         <div>Goal name: {plan_title}</div>
         <div>Goal details: {plan_subtitle}</div>
         <input value={this.state.term} onChange={this.handleChange}/>
-        <button onClick={this.handleClick}>Next</button>
+        <button onClick={this.handleClick}>Save</button>
+        <Link to="/goals"> Next>> </Link>
+        <Link to="/category"> Back>> </Link>
       </div>
     )
   }

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import "../styles/plan_goal.css"
 
 const PlanGoal = ({
@@ -71,6 +72,8 @@ const PlanGoal = ({
           <input name="save_daily" value={save_daily} disabled />
         </div>
       </form>
+      <Link to="/"> Next>> </Link>
+      <Link to="/title"> Back>> </Link>
     </div>
   );
 };
