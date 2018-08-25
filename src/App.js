@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import PlanInfo from "./components/plan_info.js";
 import PlanCategory from "./components/plan_category.js";
 import PlanTitle from "./components/plan_title.js";
-import PlanGoals from "./components/plan_goals.js";
+import PlanGoal from "./components/plan_goal.js";
 import data from "./data/data.json";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -20,13 +21,13 @@ class App extends Component {
     plan_subtitle: ""
   };
 
-  get_title = title => {
+  getTitle = title => {
     this.setState({
       plan_title: title
     });
   };
 
-  get_subtitle = description => {
+  getSubtitle = description => {
     this.setState({
       plan_subtitle: description
     });
@@ -58,14 +59,13 @@ class App extends Component {
     const { goal, saved } = this.state;
 
     const date = new Date(year, month, day);
-    const daysLefts = Math.ceil((date - new Date()) / (1000 * 60 * 60 * 24));
+    const daysLeft = Math.ceil((date - new Date()) / (1000 * 60 * 60 * 24));
     const target = goal > 0 && goal > saved ? goal - saved : 0;
+    const save_daily = (target / daysLeft || 0).toFixed(2);
 
-    const save_daily = (target / daysLefts || 0).toFixed(2);
-
-    if (daysLefts > 0) {
+    if (daysLeft > 0) {
       this.setState({ save_daily });
-    } else if (daysLefts === 0) {
+    } else if (daysLeft === 0) {
       this.setState({ save_daily: target.toFixed(2) });
     } else {
       this.setState({ save_daily: 0.0 });
@@ -74,32 +74,65 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <PlanInfo
-          isActive={true} 
-          goal={this.state.goal}
-          saved={this.state.saved}
-          date={this.state.date}
-        />
-        <PlanCategory
-          isActive={false}  
-          data={this.state.data} 
-          get_title={this.get_title} 
-        />
-        <PlanTitle
-          isActive={false} 
-          plan_title={this.state.plan_title}
-          plan_subtitle={this.state.plan_subtitle}
-          get_subtitle={this.get_subtitle}
-        />
-        <PlanGoals
-          isActive={false} 
-          state={this.state}
-          changeGoal={this.onGoalChange}
-          changeSaved={this.onSavedChange}
-          handleDateChange={this.onDateChange}
-        />
-      </div>
+      <Router>
+        <div>
+          <Route path="/info" render={() => {
+              return (
+                <div>
+                  <PlanInfo
+                    goal={this.state.goal}
+                    saved={this.state.saved}
+                    date={this.state.date}
+                  />
+                  <Link to="/category">Adjust my goal</Link>
+                </div>
+              )
+            }} 
+          />
+    
+          <Route path="/category" render={() => {
+              return (
+                <div>
+                  <PlanCategory
+                    data={this.state.data} 
+                    getTitle={this.getTitle} 
+                  />
+                  <Link to="/title">Next ></Link>
+                </div>
+              )
+            }} 
+          />
+
+          <Route path="/title" render={() => {
+              return (
+                <div>
+                  <PlanTitle
+                    plan_title={this.state.plan_title}
+                    plan_subtitle={this.state.plan_subtitle}
+                    getSubtitle={this.getSubtitle}
+                  />
+                  <Link to="/goals">Next ></Link>
+                </div>
+              )
+            }} 
+          />
+
+          <Route path="/goals" render={() => {
+              return (
+                <div>
+                  <PlanGoal
+                    state={this.state}
+                    changeGoal={this.onGoalChange}
+                    changeSaved={this.onSavedChange}
+                    handleDateChange={this.onDateChange}
+                  />
+                  <Link to="/info">Next ></Link>
+                </div>
+              )
+            }} 
+          />
+        </div>
+      </Router>
     );
   }
 }

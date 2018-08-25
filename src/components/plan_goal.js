@@ -1,6 +1,7 @@
 import React from "react";
+import "../styles/plan_goal.css"
 
-const PlanGoals = ({
+const PlanGoal = ({
   state: {
     goal,
     saved,
@@ -41,7 +42,7 @@ const PlanGoals = ({
   ));
   
   return (
-    <div>
+    <div className="plan-goal">
       Set your goal
       <form>
         <div>
@@ -65,6 +66,7 @@ const PlanGoals = ({
             {years}
           </select>
         </div>
+        
         <div>
           <input name="save_daily" value={save_daily} disabled />
         </div>
@@ -73,4 +75,4 @@ const PlanGoals = ({
   );
 };
 
-export default PlanGoals;
+export default PlanGoal;

@@ -1,5 +1,6 @@
 .plan-category {
-  text-align: center; }
+  text-align: center;
+  width: 36rem; }
   .plan-category__list {
     border: 1px solid green;
     padding: 1px;

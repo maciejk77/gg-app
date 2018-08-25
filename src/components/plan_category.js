@@ -17,13 +17,12 @@ class PlanCategory extends Component {
                     id={item.id}
                     goal={item.goal}
                     source={item.source}
-                    get_title={this.props.get_title}
+                    getTitle={this.props.getTitle}
                 />
             ) 
         });
     }    
     render() {
-        //if(!this.props.isActive) { return null };
         return (
             <div className="plan-category">
                 <div>1----2-----3</div>
