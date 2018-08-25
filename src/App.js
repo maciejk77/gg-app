@@ -84,7 +84,7 @@ class App extends Component {
                     saved={this.state.saved}
                     date={this.state.date}
                   />
-                  <Link to="/category">Adjust my goal</Link>
+                  <Link to="/category"> Adjust my goal </Link>
                 </div>
               )
             }} 
@@ -97,7 +97,8 @@ class App extends Component {
                     data={this.state.data} 
                     getTitle={this.getTitle} 
                   />
-                  <Link to="/title">Next ></Link>
+                  <Link to="/title"> Next>> </Link>
+                  <Link to="/"> Back>> </Link>
                 </div>
               )
             }} 
@@ -111,7 +112,8 @@ class App extends Component {
                     plan_subtitle={this.state.plan_subtitle}
                     getSubtitle={this.getSubtitle}
                   />
-                  <Link to="/goals">Next ></Link>
+                  <Link to="/goals"> Next>> </Link>
+                  <Link to="/category"> Back>> </Link>
                 </div>
               )
             }} 
@@ -126,7 +128,8 @@ class App extends Component {
                     changeSaved={this.onSavedChange}
                     handleDateChange={this.onDateChange}
                   />
-                  <Link to="/">Next ></Link>
+                  <Link to="/"> Next>> </Link>
+                  <Link to="/title"> Back>> </Link>
                 </div>
               )
             }} 
