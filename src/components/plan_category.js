@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PlanItem from './plan_item.js';
 import '../styles/plan_category.css';
 import { Link } from 'react-router-dom';
+import StepsBar from './steps_bar';
 
 class PlanCategory extends Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class PlanCategory extends Component {
     render() {
         return (
             <div className="plan-category">
-                <div>1----2-----3</div>
+                <StepsBar step={this.props.step}/>
                 <div>What are you saving for?</div>
                 <div className="plan-category__list">
                     {this.render_list()}

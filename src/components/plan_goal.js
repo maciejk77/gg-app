@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import "../styles/plan_goal.css"
+import StepsBar from './steps_bar';
 
 const PlanGoal = ({
   state: {
@@ -44,6 +45,8 @@ const PlanGoal = ({
   
   return (
     <div className="plan-goal">
+      {/* To be refactored */}
+      {/* <StepsBar step={this.props.step}/> */}
       Set your goal
       <form>
         <div>

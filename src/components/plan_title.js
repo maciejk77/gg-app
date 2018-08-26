@@ -1,6 +1,7 @@
 import React, { Component } from  'react';
 import '../styles/plan_title.css';
 import { Link } from 'react-router-dom';
+import StepsBar from './steps_bar';
 
 class PlanTitle extends Component {
   constructor(props) {
@@ -29,6 +30,7 @@ class PlanTitle extends Component {
     const { plan_title, plan_subtitle } = this.props;
     return (
       <div className="plan__title">
+        <StepsBar step={this.props.step}/>
         <div>Goal name: {plan_title}</div>
         <div>Goal details: {plan_subtitle}</div>
         <input value={this.state.term} onChange={this.handleChange}/>

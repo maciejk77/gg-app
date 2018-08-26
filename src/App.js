@@ -1,10 +1,10 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PlanInfo from "./components/plan_info.js";
 import PlanCategory from "./components/plan_category.js";
 import PlanTitle from "./components/plan_title.js";
 import PlanGoal from "./components/plan_goal.js";
 import data from "./data/data.json";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends Component {
   state = {
@@ -94,7 +94,8 @@ class App extends Component {
                 <div>
                   <PlanCategory
                     data={this.state.data} 
-                    getTitle={this.getTitle} 
+                    getTitle={this.getTitle}
+                    step={1} 
                   />
                 </div>
               )
@@ -108,6 +109,7 @@ class App extends Component {
                     plan_title={this.state.plan_title}
                     plan_subtitle={this.state.plan_subtitle}
                     getSubtitle={this.getSubtitle}
+                    step={2}
                   />
                 </div>
               )
@@ -122,6 +124,7 @@ class App extends Component {
                     changeGoal={this.onGoalChange}
                     changeSaved={this.onSavedChange}
                     handleDateChange={this.onDateChange}
+                    step={3}
                   />
                 </div>
               )
