@@ -31,8 +31,10 @@ class PlanCategory extends Component {
                 <div className="plan-category__list">
                     {this.render_list()}
                 </div>
-                <Link to="/title"> Next>> </Link>
-                <Link to="/"> Back>> </Link>
+                <div className="button-group">
+                  <Link to="/title" className="button-group__next"> Next </Link>
+                  <Link to="/" className="button-group__back"> &lt;back </Link>
+                </div>
             </div>
         )
     }

@@ -1,4 +1,5 @@
 .plan-category {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
     width: 36rem;
     height: 23rem;
@@ -10,4 +11,25 @@
         flex-wrap: wrap;
         margin-bottom: 2px;
     }
+}
+
+// bellow, shared by all components duplication?
+.button-group {
+  margin-top: 1rem;
+  
+  &__next {
+    background-color: rgb(69,178,192);
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+    padding: .5rem;
+    border-radius: 2rem;
+    border-bottom: .2rem solid #000;
+  }
+
+  &__back {
+    text-decoration: none;
+    color: rgb(69,178,192);
+  }
 }

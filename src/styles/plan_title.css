@@ -3,3 +3,18 @@
   padding: 2px;
   width: 36rem;
   height: 23rem; }
+
+.button-group {
+  margin-top: 1rem; }
+  .button-group__next {
+    background-color: #45b2c0;
+    color: #fff;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-size: 1.4rem;
+    padding: .5rem;
+    border-radius: 2rem;
+    border-bottom: .2rem solid #000; }
+  .button-group__back {
+    text-decoration: none;
+    color: #45b2c0; }

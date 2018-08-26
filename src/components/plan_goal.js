@@ -72,8 +72,10 @@ const PlanGoal = ({
           <input name="save_daily" value={save_daily} disabled />
         </div>
       </form>
-      <Link to="/"> Next>> </Link>
-      <Link to="/title"> Back>> </Link>
+      <div className="button-group">
+        <Link to="/" className="button-group__next"> Next </Link>
+        <Link to="/title" className="button-group__back"> &lt;back </Link>
+      </div>
     </div>
   );
 };

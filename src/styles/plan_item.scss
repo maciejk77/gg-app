@@ -1,5 +1,4 @@
 .plan-item {
-    border: 1px solid red;
     width: 10%;
     padding: .5rem;
     text-align: center;
@@ -10,5 +9,12 @@
         display: flex;
         flex-direction: column;
         margin: 0 auto;
+        color: #000;
     }
+}
+
+.plan-item:hover {
+  background-color: rgb(69,178,192);
+  border-radius: 5rem;
+  color: #fff;
 }

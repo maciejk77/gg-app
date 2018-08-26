@@ -33,8 +33,10 @@ class PlanTitle extends Component {
         <div>Goal details: {plan_subtitle}</div>
         <input value={this.state.term} onChange={this.handleChange}/>
         <button onClick={this.handleClick}>Save</button>
-        <Link to="/goals"> Next>> </Link>
-        <Link to="/category"> Back>> </Link>
+        <div className="button-group">
+          <Link to="/goals" className="button-group__next"> Next </Link>
+          <Link to="/category" className="button-group__back"> &lt;back </Link>
+        </div>
       </div>
     )
   }

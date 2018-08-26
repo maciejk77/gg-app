@@ -2,46 +2,46 @@
     {
         "id": 1,
         "goal": "Travel the world",
-        "source": "https://picsum.photos/60/60"
+        "source": "backpack"
     },
     {
         "id": 2,
         "goal": "Rainy day fund",
-        "source": "https://picsum.photos/60/60"
+        "source": "coins"
     },
     {
         "id": 3,
         "goal": "New pad",
-        "source": "https://picsum.photos/60/60"
+        "source": "house"
     },
     {
         "id": 4,
         "goal": "New wheels",
-        "source": "https://picsum.photos/60/60"
+        "source": "bicycle"
     },
     {
         "id": 5,
         "goal": "Save for kids",
-        "source": "https://picsum.photos/60/60"
+        "source": "piggy-bank"
     },
     {
         "id": 6,
         "goal": "Next getway",
-        "source": "https://picsum.photos/60/60"
+        "source": "world"
     },
     {
         "id": 7,
         "goal": "Launch startup",
-        "source": "https://picsum.photos/60/60"
+        "source": "lightbulb"
     },
     {
         "id": 8,
         "goal": "Tie the knot",
-        "source": "https://picsum.photos/60/60"
+        "source": "cake"
     },
     {
         "id": 9,
         "goal": "Something else",
-        "source": "https://picsum.photos/60/60"
+        "source": "question"
     }
 ]
