@@ -1,44 +1,81 @@
 .plan-info {
-  color: white;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #fff;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   margin-bottom: 2px;
   width: 36rem;
   height: 23rem; }
   .plan-info__name {
-    background-color: blue;
+    background-color: #095489;
     height: 4rem;
     display: flex;
     align-items: center;
     padding-left: 3.5rem; }
 
 .plan-info-bottom {
-  background-color: lightblue;
+  background-color: #3daecd;
   height: 19rem;
   display: flex; }
   .plan-info-bottom__left {
     width: 45%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center; }
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 2rem; }
   .plan-info-bottom__right {
-    border: 1px solid red;
-    width: 55%; }
+    width: 55%;
+    padding: 2rem 2rem 0 2rem; }
 
 .plan-info-bottom-percentage {
-  border: .2rem solid #8b475d;
+  border: 0.2rem solid #ed608e;
   background-color: #db7093;
   opacity: .8;
-  border-radius: 10rem;
-  padding: 2rem;
+  border-radius: 5rem;
+  width: 5rem;
+  height: 5rem;
+  padding: 1rem;
   font-size: 2.5rem;
-  margin-bottom: 2rem; }
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .button {
-  border: .2rem solid black;
-  border-bottom: .4rem solid black;
-  padding: .5rem 2rem;
+  border: .2rem solid #000;
+  border-bottom: .4rem solid #000;
+  padding: .5rem 1.5rem;
   border-radius: 5rem;
-  background-color: yellow;
+  background-color: #fcc437;
   color: black;
-  text-decoration: none; }
+  text-decoration: none;
+  font-weight: bold; }
+
+.plan-info-bottom-right-text {
+  font-size: .9rem; }
+  .plan-info-bottom-right-text__item {
+    padding-bottom: .5rem; }
+
+.text-md {
+  font-size: 1.4rem;
+  font-weight: 100; }
+
+.text-bg {
+  font-size: 2rem;
+  font-weight: bold; }
+
+.plan-info-bottom-right-text-nogoal {
+  font-size: 1.4rem;
+  padding-top: 3rem;
+  line-height: 1.75rem; }
+
+.counter {
+  margin-top: 1rem;
+  display: flex; }
+  .counter__item {
+    font-size: 1.3rem;
+    padding: .5rem;
+    border-radius: 2rem;
+    width: 1.75rem;
+    background-color: #3c3c3c;
+    margin-right: .5rem;
+    text-align: center; }

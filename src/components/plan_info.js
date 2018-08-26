@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import Countdown from 'react-countdown-to-future-date';
+//import Countdown from 'react-countdown-to-future-date';
 import { Line } from 'rc-progress';
 import "../styles/plan_info.css";
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import countdown from 'countdown';
+import momentcountdown from 'moment-countdown';
 
 class PlanInfo extends Component {
 
@@ -15,6 +17,11 @@ class PlanInfo extends Component {
     } = this.props;
 
     const timeLeft = new Date(year, month, day).getTime();
+    const ts = moment().countdown(timeLeft, countdown.MONTHS|countdown.DAYS|countdown.HOURS|countdown.MINUTES);
+    // console.log('months ==> ', ts.months);
+    // console.log('days ==> ', ts.days);
+    // console.log('hours ==> ', ts.hours);
+    // console.log('minutes ==> ', ts.minutes);
 
     return (
       <div className="plan-info">
@@ -55,8 +62,14 @@ class PlanInfo extends Component {
                   </div>
                   <div className="plan-info-bottom-right-text__item">Time left to hit your saving target:</div>
                   <div className="plan-info-bottom-right-text__item">{moment(timeLeft).format('DD MMMM YYYY')}</div>
-                  
-                  <Countdown givenDate={timeLeft}/>
+                  <div className="counter">
+                    <div className="counter__item">{ts.months}</div>
+                    <div className="counter__item">{ts.days}</div>
+                    <div className="counter__item">{ts.hours}</div>
+                    <div className="counter__item">{ts.minutes}</div>
+                  </div>      
+            
+                  {/* <Countdown givenDate={timeLeft}/> */}
                 </div>
               </div>
             }
