@@ -19,27 +19,37 @@ class PlanInfo extends Component {
     return (
       <div className="plan-info">
         <div className="plan-info__name">Hi CustomerNameHere</div>
-        <Link to="/category"> { goal ? 'Adjust' : 'Set' } my goal </Link>
-        { goal &&
-          <div>
-            <div>
+        <div className="plan-info-bottom">
+          <div className="plan-info-bottom__left">
+            <div className="plan-info-bottom-percentage">
               { goal 
                 ? <div>{Math.floor((saved / goal) * 100)}%</div>
                 : <div>0%</div>
               }
-
-              <div>Currently in savings: </div>
-              <Line percent={Math.floor(saved/goal * 100)} strokeWidth="2" trailWidth="2" strokeColor="pink" />
-              <div>£{saved} of £{goal}</div>
-              
-              <div>Time left to hit your saving target:</div>
-              <div>{moment(timeLeft).format('DD MMMM YYYY')}</div>
-              <Countdown givenDate = {timeLeft}/>
-            
             </div>
+            <Link 
+              className="button"
+              to="/category"> { goal ? 'Adjust' : 'Set' } my goal 
+            </Link>
           </div>
-        }
-      </div>
+          <div className="plan-info-bottom__right">
+            { goal &&
+              <div>
+                <div>
+
+                  <div>Currently in savings: </div>
+                  <Line percent={Math.floor(saved/goal * 100)} strokeWidth="2" trailWidth="2" strokeColor="pink" />
+                  <div>£{saved} of £{goal}</div>
+                  
+                  <div>Time left to hit your saving target:</div>
+                  <div>{moment(timeLeft).format('DD MMMM YYYY')}</div>
+                  <Countdown givenDate = {timeLeft}/>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      </div>    
     );
   }
 }
