@@ -63,11 +63,17 @@ class PlanInfo extends Component {
                   <div className="plan-info-bottom-right-text__item">Time left to hit your saving target:</div>
                   <div className="plan-info-bottom-right-text__item">{moment(timeLeft).format('DD MMMM YYYY')}</div>
                   <div className="counter">
-                    <div className="counter__item">{ts.months}</div>
-                    <div className="counter__item">{ts.days}</div>
-                    <div className="counter__item">{ts.hours}</div>
-                    <div className="counter__item">{ts.minutes}</div>
-                  </div>      
+                    <div className="counter__item">{ts.months}</div><span className="colon">:</span>
+                    <div className="counter__item">{ts.days}</div><span className="colon">:</span>
+                    <div className="counter__item">{ts.hours}</div><span className="colon">:</span>
+                    <div className="counter__item">{ts.minutes}</div>  
+                  </div> 
+                  <div className="labels">
+                    <div>months</div> 
+                    <div>days</div> 
+                    <div>hours</div> 
+                    <div>minutes</div> 
+                  </div>     
             
                   {/* <Countdown givenDate={timeLeft}/> */}
                 </div>
