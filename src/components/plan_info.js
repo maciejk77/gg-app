@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-//import Countdown from 'react-countdown-to-future-date';
 import { Line } from 'rc-progress';
 import "../styles/plan_info.css";
 import moment from 'moment';
@@ -18,11 +17,7 @@ class PlanInfo extends Component {
 
     const timeLeft = new Date(year, month, day).getTime();
     const ts = moment().countdown(timeLeft, countdown.MONTHS|countdown.DAYS|countdown.HOURS|countdown.MINUTES);
-    // console.log('months ==> ', ts.months);
-    // console.log('days ==> ', ts.days);
-    // console.log('hours ==> ', ts.hours);
-    // console.log('minutes ==> ', ts.minutes);
-
+    
     return (
       <div className="plan-info">
         <div className="plan-info__name">Hi CustomerName</div>
@@ -74,8 +69,6 @@ class PlanInfo extends Component {
                     <div>hours</div> 
                     <div>minutes</div> 
                   </div>     
-            
-                  {/* <Countdown givenDate={timeLeft}/> */}
                 </div>
               </div>
             }
