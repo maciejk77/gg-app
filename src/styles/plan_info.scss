@@ -1,5 +1,5 @@
 .plan-info {
-  color: white;
+  color: #fff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 
   //border: solid 1px blue;
@@ -10,7 +10,7 @@
   height: 23rem;
 
   &__name {
-    background-color: blue;
+    background-color: rgb(9,84,137);
     height: 4rem;
     display: flex;
     align-items: center;
@@ -19,7 +19,7 @@
 }
 
 .plan-info-bottom {
-  background-color: lightblue;
+  background-color: rgb(61,174,205);
   height: 19rem;
   display: flex;
 
@@ -33,13 +33,14 @@
   }
 
   &__right {
-    border: 1px solid red;
+    //border: 1px solid red;
     width: 55%;
+    padding: 2rem 2rem 0 2rem;
   }
 }
 
 .plan-info-bottom-percentage {
-  border: .2rem solid #8b475d;
+  border: .2rem solid rgb(237,96,142);
   background-color: #db7093;
   opacity: .8;
   border-radius: 10rem;
@@ -49,12 +50,36 @@
 }
 
 .button {
-  border: .2rem solid black;
-  border-bottom: .4rem solid black;
-  padding: .5rem 2rem;
+  border: .2rem solid #000;
+  border-bottom: .4rem solid #000;
+  padding: .5rem 1.5rem;
   border-radius: 5rem;
-  background-color: yellow;
+  background-color: rgb(252,196,55);
   color: black;
   text-decoration: none;
+  font-weight: bold;
 }
 
+.plan-info-bottom-right-text {
+  font-size: .9rem;
+
+  &__item {
+    padding-bottom: .5rem;
+  }
+}
+
+.text-md {
+  font-size: 1.4rem;
+  font-weight: 100;
+}
+
+.text-bg {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.plan-info-bottom-right-text-nogoal {
+  font-size: 1.4rem;
+  padding-top: 3rem;
+  line-height: 1.75rem;
+}

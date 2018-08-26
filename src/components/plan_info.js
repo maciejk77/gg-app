@@ -18,7 +18,7 @@ class PlanInfo extends Component {
 
     return (
       <div className="plan-info">
-        <div className="plan-info__name">Hi CustomerNameHere</div>
+        <div className="plan-info__name">Hi CustomerName</div>
         <div className="plan-info-bottom">
           <div className="plan-info-bottom__left">
             <div className="plan-info-bottom-percentage">
@@ -33,17 +33,30 @@ class PlanInfo extends Component {
             </Link>
           </div>
           <div className="plan-info-bottom__right">
+            { !goal && 
+              <div className="plan-info-bottom-right-text-nogoal">
+                <div>See <b>how much</b><br />you need to save daily<br />to <b>reach your goal!</b></div>
+              </div>
+            }
             { goal &&
               <div>
-                <div>
+                <div className="plan-info-bottom-right-text">
 
-                  <div>Currently in savings: </div>
-                  <Line percent={Math.floor(saved/goal * 100)} strokeWidth="2" trailWidth="2" strokeColor="pink" />
-                  <div>£{saved} of £{goal}</div>
+                  <div className="plan-info-bottom-right-text__item">Currently in savings: </div>
+                  <Line 
+                    className="plan-info-bottom-right-text__item"
+                    percent={Math.floor(saved/goal * 100)} 
+                    strokeWidth="3" 
+                    trailWidth="3" 
+                    strokeColor="rgb(234,98,144)" 
+                  />
+                  <div className="plan-info-bottom-right-text__item">
+                    <div className="text-bg">£{saved}<span className="text-md"> of £{goal}</span></div>
+                  </div>
+                  <div className="plan-info-bottom-right-text__item">Time left to hit your saving target:</div>
+                  <div className="plan-info-bottom-right-text__item">{moment(timeLeft).format('DD MMMM YYYY')}</div>
                   
-                  <div>Time left to hit your saving target:</div>
-                  <div>{moment(timeLeft).format('DD MMMM YYYY')}</div>
-                  <Countdown givenDate = {timeLeft}/>
+                  <Countdown givenDate={timeLeft}/>
                 </div>
               </div>
             }
