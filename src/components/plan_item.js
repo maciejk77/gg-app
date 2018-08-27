@@ -17,5 +17,5 @@ export default PlanItem;
 PlanItem.propTypes = {
   goal: propTypes.string,
   source: propTypes.string,
-  // getTitle: 
+  getTitle: propTypes.func 
 };
