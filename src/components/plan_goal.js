@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router-dom';
 import "../styles/plan_goal.css"
 import StepsBar from './steps_bar';
+import propTypes from 'prop-types';
 
 const PlanGoal = ({
   state: {
@@ -45,7 +46,7 @@ const PlanGoal = ({
   
   return (
     <div className="plan-goal">
-      {/* To be refactored */}
+      {/* To be refactored to accept props step={3} at <StepsBar /> */}
       {/* <StepsBar step={this.props.step}/> */}
       Set your goal
       <form>
@@ -84,3 +85,11 @@ const PlanGoal = ({
 };
 
 export default PlanGoal;
+
+PlanGoal.propTypes = {
+  // state: ,
+  // changeGoal: ,
+  // changeSaved ,
+  // handleDateChange ,
+  step: propTypes.number
+};

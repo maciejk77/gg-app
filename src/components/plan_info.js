@@ -5,6 +5,7 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 import countdown from 'countdown';
 import momentcountdown from 'moment-countdown';
+import propTypes from 'prop-types';
 
 class PlanInfo extends Component {
 
@@ -78,5 +79,11 @@ class PlanInfo extends Component {
     );
   }
 }
+
+PlanInfo.propTypes = {
+  goal: propTypes.number,
+  saved: propTypes.number,
+  // date: 
+};
 
 export default PlanInfo;

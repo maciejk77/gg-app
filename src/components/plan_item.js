@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/plan_item.css';
+import propTypes from 'prop-types';
 
 const PlanItem = (props) => {
   const { goal, source, getTitle } = props;
@@ -12,3 +13,9 @@ const PlanItem = (props) => {
 }
 
 export default PlanItem;
+
+PlanItem.propTypes = {
+  goal: propTypes.string,
+  source: propTypes.string,
+  // getTitle: 
+};

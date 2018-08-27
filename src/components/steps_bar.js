@@ -1,6 +1,7 @@
 import React from 'react';
 import cn from 'classnames';
-import '../styles/steps_bar.css'
+import '../styles/steps_bar.css';
+import propTypes from 'prop-types';
 
 const StepsBar = (props) => {
     
@@ -16,15 +17,15 @@ const StepsBar = (props) => {
         }
         { props.step === 2 &&
           <div className="step-icons">
-            <div className={cn("base-style", "active")}><div class="checkmark">L</div></div>
+            <div className={cn("base-style", "active")}><div className="checkmark">L</div></div>
             <div className="base-style">2</div>
             <div className={cn("base-style", "non-active")}>3</div>
           </div>
         }
         { props.step === 3 &&
           <div className="step-icons">
-            <div className={cn("base-style", "active")}><div class="checkmark">L</div></div>
-            <div className={cn("base-style", "active")}><div class="checkmark">L</div></div>
+            <div className={cn("base-style", "active")}><div className="checkmark">L</div></div>
+            <div className={cn("base-style", "active")}><div className="checkmark">L</div></div>
             <div className={cn("base-style")}>3</div>
           </div>
         }
@@ -45,3 +46,7 @@ const StepsBar = (props) => {
 } 
 
 export default StepsBar;
+
+StepsBar.propTypes = {
+  step: propTypes.number
+};

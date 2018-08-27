@@ -2,6 +2,7 @@ import React, { Component } from  'react';
 import '../styles/plan_title.css';
 import { Link } from 'react-router-dom';
 import StepsBar from './steps_bar';
+import propTypes from 'prop-types';
 
 class PlanTitle extends Component {
   constructor(props) {
@@ -43,5 +44,12 @@ class PlanTitle extends Component {
     )
   }
 }
+
+PlanTitle.propTypes = {
+  // plan_title: ,
+  // plan_subtitle: ,
+  // getSubtitle: ,
+  step: propTypes.number
+};
 
 export default PlanTitle;

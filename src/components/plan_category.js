@@ -3,6 +3,7 @@ import PlanItem from './plan_item.js';
 import '../styles/plan_category.css';
 import { Link } from 'react-router-dom';
 import StepsBar from './steps_bar';
+import propTypes from 'prop-types';
 
 class PlanCategory extends Component {
     constructor(props) {
@@ -41,5 +42,11 @@ class PlanCategory extends Component {
     }
 
 } 
+
+PlanCategory.propTypes = {
+  // data: ,
+  // getTitle: ,
+  step: propTypes.number
+};
 
 export default PlanCategory;
