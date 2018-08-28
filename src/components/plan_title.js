@@ -4,7 +4,6 @@ import { withRouter } from "react-router-dom";
 import propTypes from "prop-types";
 
 import StepsBar from "./steps_bar";
-import "../styles/plan_title.css";
 
 class PlanTitle extends Component {
   constructor(props) {
