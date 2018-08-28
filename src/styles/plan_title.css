@@ -1,8 +1,18 @@
-.plan__title {
-  border: solid 1px lightseagreen;
-  padding: 2px;
-  width: 36rem;
-  height: 23rem; }
+.plan-title {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  height: 23rem;
+  margin: 0 auto;
+  width: 26rem; }
+  .plan-title__title {
+    text-align: center; }
+  .plan-title__label {
+    display: block;
+    font-size: 0.9rem;
+    margin: 0 0 5px 0;
+    text-align: center; }
+  .plan-title__title-input {
+    padding: 4px;
+    width: 100%; }
 
 .button-group {
   margin-top: 1rem; }
@@ -12,9 +22,9 @@
     text-decoration: none;
     margin-right: 1rem;
     font-size: 1.4rem;
-    padding: .5rem;
+    padding: 0.5rem;
     border-radius: 2rem;
-    border-bottom: .2rem solid #000; }
+    border-bottom: 0.2rem solid #000; }
   .button-group__back {
     text-decoration: none;
     color: #45b2c0; }
