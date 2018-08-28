@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import "../styles/plan_goal.css"
-import StepsBar from './steps_bar';
-import propTypes from 'prop-types';
+import { Link } from "react-router-dom";
+import StepsBar from "./steps_bar";
+import propTypes from "prop-types";
 
 const PlanGoal = ({
   state: {
@@ -17,8 +16,18 @@ const PlanGoal = ({
   handleDateChange
 }) => {
   const MONTHS = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
   ];
 
   const dateNow = new Date();
@@ -44,7 +53,7 @@ const PlanGoal = ({
       {i + 1}
     </option>
   ));
-  
+
   return (
     <div className="plan-goal">
       <StepsBar step={step} />
@@ -57,15 +66,30 @@ const PlanGoal = ({
 
         <div className="goal-form__element goal-form__element--flex">
           <div>
-            <select className="goal-form__select" name="day" value={day} onChange={handleDateChange}>
+            <select
+              className="goal-form__select"
+              name="day"
+              value={day}
+              onChange={handleDateChange}
+            >
               {days}
             </select>
 
-            <select className="goal-form__select" name="month"  value={month} onChange={handleDateChange}>
+            <select
+              className="goal-form__select"
+              name="month"
+              value={month}
+              onChange={handleDateChange}
+            >
               {months}
             </select>
 
-            <select className="goal-form__select"  name="year" value={year} onChange={handleDateChange}>
+            <select
+              className="goal-form__select"
+              name="year"
+              value={year}
+              onChange={handleDateChange}
+            >
               {years}
             </select>
           </div>
@@ -77,16 +101,20 @@ const PlanGoal = ({
           <label>Amount saved so far</label>
         </div>
 
-        
-        
         <div className="goal-form__element">
           <input className="save_daily" value={save_daily} disabled />
           <label>Saving needed per day</label>
         </div>
       </form>
       <div className="button-group">
-        <Link to="/" className="button-group__next"> Save my goal </Link>
-        <Link to="/title" className="button-group__back"> &lt;back </Link>
+        <Link to="/" className="button-group__next">
+          {" "}
+          Save my goal{" "}
+        </Link>
+        <Link to="/title" className="button-group__back">
+          {" "}
+          &lt;back{" "}
+        </Link>
       </div>
     </div>
   );
