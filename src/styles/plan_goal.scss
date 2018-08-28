@@ -1,26 +1,75 @@
 .plan-goal {
-  border: 1px solid red;
-  width: 36rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   height: 23rem;
+  width: 26rem;
+  margin: 0 auto;
+
+  &__title {
+    text-align: center;
+  }
+  .goal-form {
+    width: 100%;
+
+    &__element {
+      margin-bottom: 30px;
+      width: 100%;
+      
+      &--flex div {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      input {
+        padding: 4px;
+        width:98%;
+      }
+
+      .save_daily {
+        background-color: lightblue;
+        color: #45b2c0;
+      }
+      
+      label {
+        color: #666;
+        display: block;
+        font-size: 0.7em;
+        text-align: center;
+      }
+    }
+
+    &__select {
+      padding: 4px;
+      width: 30%;
+    }
+  }
 }
 
 // bellow, shared by all components duplication?
 .button-group {
   margin-top: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   
   &__next {
     background-color: rgb(69,178,192);
     color: #fff;
     text-decoration: none;
-    margin-right: 1rem;
-    font-size: 1.4rem;
-    padding: .5rem;
+    //margin-right: 1rem;
+    font-size: 1.2rem;
+    padding: .5rem 1rem;
     border-radius: 2rem;
     border-bottom: .2rem solid #000;
+    width: 8rem;
+    margin: 0 auto;
   }
 
   &__back {
+    font-size: .9rem;
     text-decoration: none;
     color: rgb(69,178,192);
+    display: block;
+    margin-top: 5px;
   }
 }

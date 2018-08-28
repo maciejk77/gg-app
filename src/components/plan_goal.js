@@ -48,36 +48,44 @@ const PlanGoal = ({
   return (
     <div className="plan-goal">
       <StepsBar step={step} />
-      Set your goal
-      <form>
-        <div>
+      <h3 className="plan-goal__title">Set your goal</h3>
+      <form className="goal-form">
+        <div className="goal-form__element">
           <input type="text" value={goal} onChange={changeGoal} />
+          <label>Total amount to save</label>
         </div>
 
-        <div>
+        <div className="goal-form__element goal-form__element--flex">
+          <div>
+            <select className="goal-form__select" name="day" value={day} onChange={handleDateChange}>
+              {days}
+            </select>
+
+            <select className="goal-form__select" name="month"  value={month} onChange={handleDateChange}>
+              {months}
+            </select>
+
+            <select className="goal-form__select"  name="year" value={year} onChange={handleDateChange}>
+              {years}
+            </select>
+          </div>
+          <label>Saved by</label>
+        </div>
+
+        <div className="goal-form__element">
           <input type="text" value={saved} onChange={changeSaved} />
+          <label>Amount saved so far</label>
         </div>
 
-        <div>
-          <select name="day" value={day} onChange={handleDateChange}>
-            {days}
-          </select>
-
-          <select name="month" value={month} onChange={handleDateChange}>
-            {months}
-          </select>
-
-          <select name="year" value={year} onChange={handleDateChange}>
-            {years}
-          </select>
-        </div>
         
-        <div>
-          <input name="save_daily" value={save_daily} disabled />
+        
+        <div className="goal-form__element">
+          <input className="save_daily" value={save_daily} disabled />
+          <label>Saving needed per day</label>
         </div>
       </form>
       <div className="button-group">
-        <Link to="/" className="button-group__next"> Next </Link>
+        <Link to="/" className="button-group__next"> Save my goal </Link>
         <Link to="/title" className="button-group__back"> &lt;back </Link>
       </div>
     </div>
