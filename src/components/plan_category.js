@@ -46,8 +46,8 @@ class PlanCategory extends Component {
 }
 
 PlanCategory.propTypes = {
-  // data: ,
-  // getTitle: ,
+  data: propTypes.array,
+  getTitle: propTypes.func,
   step: propTypes.number
 };
 
