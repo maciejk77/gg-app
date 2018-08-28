@@ -2,8 +2,10 @@
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
   height: 23rem;
-  margin: 0 auto;
-  width: 26rem;
+  width: 36rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__title {
     text-align: center;
@@ -18,27 +20,7 @@
 
   &__title-input {
     padding: 4px;
-    width: 100%;
-  }
-}
-
-// bellow, shared by all components duplication?
-.button-group {
-  margin-top: 1rem;
-
-  &__next {
-    background-color: rgb(69, 178, 192);
-    color: #fff;
-    text-decoration: none;
-    margin-right: 1rem;
-    font-size: 1.4rem;
-    padding: 0.5rem;
-    border-radius: 2rem;
-    border-bottom: 0.2rem solid #000;
-  }
-
-  &__back {
-    text-decoration: none;
-    color: rgb(69, 178, 192);
+    width: 70%;
+    outline: none;
   }
 }
