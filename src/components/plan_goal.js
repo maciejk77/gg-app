@@ -11,6 +11,7 @@ const PlanGoal = ({
     save_daily,
     date: { day, month, year }
   },
+  step,
   changeGoal,
   changeSaved,
   handleDateChange
@@ -46,8 +47,7 @@ const PlanGoal = ({
   
   return (
     <div className="plan-goal">
-      {/* To be refactored to accept props step={3} at <StepsBar /> */}
-      {/* <StepsBar step={this.props.step}/> */}
+      <StepsBar step={step} />
       Set your goal
       <form>
         <div>
