@@ -1,6 +1,5 @@
 .steps-bar {
-  border: 1px solid green;
-  width: 10rem;
+  width: 20rem;
   margin: 0 auto;
   height: 3rem; }
 
@@ -9,7 +8,8 @@
   width: 19px;
   border-radius: 10px;
   text-align: center;
-  color: #e25987; }
+  color: #e25987;
+  background-color: #fff; }
 
 .active {
   background-color: #e25987;
@@ -21,7 +21,9 @@
 
 .step-icons {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  position: relative;
+  top: 15px; }
 
 .checkmark {
   font-family: arial;

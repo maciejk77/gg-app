@@ -30,14 +30,14 @@ const StepsBar = (props) => {
           </div>
         }
      
-        <svg height="40" width="160">
-          { props.step >= 2 
-            ? <line x1="15" y1="5" x2="80" y2="5" style={{stroke: "rgb(226,89,135)", strokeWidth: 5}} />
-            : <line x1="15" y1="5" x2="80" y2="5" style={{stroke: "rgb(237,237,237)", strokeWidth: 5}} />
+        <svg height="40" width="300">
+          { props.step === 2 
+            ? <line x1="0" y1="5" x2="150" y2="5" style={{stroke: "rgb(226,89,135)", strokeWidth: 3}} />
+            : <line x1="0" y1="5" x2="150" y2="5" style={{stroke: "rgb(237,237,237)", strokeWidth: 3}} />
           }
           { props.step === 3
-            ? <line x1="81" y1="5" x2="150" y2="5" style={{stroke: "rgb(226,89,135)", strokeWidth: 5}} />
-            : <line x1="81" y1="5" x2="150" y2="5" style={{stroke: "rgb(237,237,237)", strokeWidth: 5}} />
+            ? <line x1="0" y1="5" x2="300" y2="5" style={{stroke: "rgb(226,89,135)", strokeWidth: 3}} />
+            : <line x1="150" y1="5" x2="300" y2="5" style={{stroke: "rgb(237,237,237)", strokeWidth: 3}} />
           }
         </svg>
       </div>
