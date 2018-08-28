@@ -51,7 +51,7 @@ const PlanGoal = ({
       <h3 className="plan-goal__title">Set your goal</h3>
       <form className="goal-form">
         <div className="goal-form__element">
-          <input type="text" value={goal} onChange={changeGoal} />
+          <input type="number" value={goal} onChange={changeGoal} />
           <label>Total amount to save</label>
         </div>
 
@@ -73,7 +73,7 @@ const PlanGoal = ({
         </div>
 
         <div className="goal-form__element">
-          <input type="text" value={saved} onChange={changeSaved} />
+          <input type="number" value={saved} onChange={changeSaved} />
           <label>Amount saved so far</label>
         </div>
 
