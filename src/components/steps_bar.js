@@ -1,41 +1,28 @@
 import React from "react";
-import cn from "classnames";
 import propTypes from "prop-types";
 
-const StepsBar = props => {
+const StepsBar = ({ step }) => {
+  const markup = Array(3)
+    .fill()
+    .map((_, i) => {
+      return (
+        <div
+          className={[
+            "base-style",
+            i + 1 > step ? "non-active" : i + 1 < step ? "active" : ""
+          ].join(" ")}
+        >
+          {i + 1 >= step ? i + 1 : <div className="checkmark">L</div>}
+        </div>
+      );
+    });
   return (
     <div>
       <div className="steps-bar">
-        {props.step === 1 && (
-          <div className="step-icons">
-            <div className="base-style">1</div>
-            <div className={cn("base-style", "non-active")}>2</div>
-            <div className={cn("base-style", "non-active")}>3</div>
-          </div>
-        )}
-        {props.step === 2 && (
-          <div className="step-icons">
-            <div className={cn("base-style", "active")}>
-              <div className="checkmark">L</div>
-            </div>
-            <div className="base-style">2</div>
-            <div className={cn("base-style", "non-active")}>3</div>
-          </div>
-        )}
-        {props.step === 3 && (
-          <div className="step-icons">
-            <div className={cn("base-style", "active")}>
-              <div className="checkmark">L</div>
-            </div>
-            <div className={cn("base-style", "active")}>
-              <div className="checkmark">L</div>
-            </div>
-            <div className={cn("base-style")}>3</div>
-          </div>
-        )}
+        <div className="step-icons">{markup}</div>
 
         <svg height="40" width="300">
-          {props.step === 2 ? (
+          {step === 2 ? (
             <line
               x1="0"
               y1="5"
@@ -52,7 +39,7 @@ const StepsBar = props => {
               style={{ stroke: "rgb(237,237,237)", strokeWidth: 3 }}
             />
           )}
-          {props.step === 3 ? (
+          {step === 3 ? (
             <line
               x1="0"
               y1="5"
@@ -75,8 +62,8 @@ const StepsBar = props => {
   );
 };
 
-export default StepsBar;
-
 StepsBar.propTypes = {
   step: propTypes.number
 };
+
+export default StepsBar;
