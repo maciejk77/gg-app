@@ -1,0 +1,27 @@
+.button-group {
+  margin-top: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  
+  &__next {
+    background-color: rgb(69,178,192);
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: .5rem 1.5rem;
+    border-radius: 2rem;
+    border: none;
+    border-bottom: .2rem solid #000;
+    margin: 0 auto;
+  }
+
+  &__back {
+    font-size: .9rem;
+    text-decoration: none;
+    color: rgb(69,178,192);
+    display: block;
+    margin-top: 5px;
+  }
+}

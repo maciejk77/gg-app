@@ -1,8 +1,7 @@
 .plan-goal {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   height: 23rem;
-  width: 26rem;
-  margin: 0 auto;
+  width: 36rem;
 
   &__title {
     text-align: center;
@@ -13,6 +12,9 @@
     &__element {
       margin-bottom: 30px;
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       
       &--flex div {
         display: flex;
@@ -21,12 +23,15 @@
 
       input {
         padding: 4px;
-        width:98%;
+        width: 70%;
+        outline: none;
+        font-size: 1rem;
       }
 
       .save_daily {
         background-color: lightblue;
         color: #45b2c0;
+        border: 1px solid;
       }
       
       label {
@@ -38,38 +43,11 @@
     }
 
     &__select {
-      padding: 4px;
-      width: 30%;
+      padding: .2rem;
+      width: 8rem;
+      margin-right: .25rem;
+      height: 2rem;
+      outline: none;
     }
-  }
-}
-
-// bellow, shared by all components duplication?
-.button-group {
-  margin-top: 1rem;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  
-  &__next {
-    background-color: rgb(69,178,192);
-    color: #fff;
-    text-decoration: none;
-    //margin-right: 1rem;
-    font-size: 1.2rem;
-    padding: .5rem 1rem;
-    border-radius: 2rem;
-    border-bottom: .2rem solid #000;
-    width: 8rem;
-    margin: 0 auto;
-  }
-
-  &__back {
-    font-size: .9rem;
-    text-decoration: none;
-    color: rgb(69,178,192);
-    display: block;
-    margin-top: 5px;
   }
 }
