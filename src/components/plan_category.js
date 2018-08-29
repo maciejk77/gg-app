@@ -15,7 +15,7 @@ class PlanCategory extends Component {
 
     handle_click = (e) => {
         e.preventDefault();
-		// this.props.getTitle(this.props.goal);
+		this.props.getTitle(this.props.data[parseInt(e.currentTarget.dataset.id)-1].goal);
 		this.setState({
             selected: parseInt(e.currentTarget.dataset.id) - 1
         });
@@ -29,7 +29,6 @@ class PlanCategory extends Component {
                         id={item.id}
                         goal={item.goal}
                         source={item.source}
-                        getTitle={this.props.getTitle}
                         handle_click={(e) => this.handle_click(e)}
                         selected={i === this.state.selected ? true : false}
                     />
