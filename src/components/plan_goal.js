@@ -123,9 +123,9 @@ const PlanGoal = ({
 export default PlanGoal;
 
 PlanGoal.propTypes = {
-  // state: ,
-  // changeGoal: ,
-  // changeSaved ,
-  // handleDateChange ,
+  state: propTypes.object,
+  changeGoal: propTypes.func,
+  changeSaved: propTypes.func,
+  handleDateChange: propTypes.func,
   step: propTypes.number
 };

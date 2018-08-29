@@ -56,7 +56,7 @@ class PlanTitle extends Component {
 }
 
 PlanTitle.propTypes = {
-  // getSubtitle: ,
+  getSubtitle: propTypes.func,
   step: propTypes.number
 };
 

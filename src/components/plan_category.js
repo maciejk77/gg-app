@@ -31,13 +31,11 @@ class PlanCategory extends Component {
         <div>What are you saving for?</div>
         <div className="plan-category__list">{this.render_list()}</div>
         <div className="button-group">
-          <Link to="/title" className="button-group__next">
-            {" "}
-            Next{" "}
+          <Link to="/title" className="button-group__next">   
+            Next
           </Link>
           <Link to="/" className="button-group__back">
-            {" "}
-            &lt;back{" "}
+            &lt;back
           </Link>
         </div>
       </div>
@@ -46,8 +44,8 @@ class PlanCategory extends Component {
 }
 
 PlanCategory.propTypes = {
-  // data: ,
-  // getTitle: ,
+  data: propTypes.array,
+  getTitle: propTypes.func,
   step: propTypes.number
 };
 

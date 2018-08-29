@@ -10,8 +10,8 @@ import data from "./data/data.json";
 class App extends Component {
   state = {
     data: data,
-    goal: "",
-    saved: "",
+    goal: 0,
+    saved: 0,
     date: {
       day: new Date().getDate(),
       month: new Date().getMonth(),

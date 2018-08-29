@@ -101,8 +101,8 @@ class PlanInfo extends Component {
 
 PlanInfo.propTypes = {
   goal: propTypes.number,
-  saved: propTypes.number
-  // date:
+  saved: propTypes.number,
+  date: propTypes.object
 };
 
 export default PlanInfo;
