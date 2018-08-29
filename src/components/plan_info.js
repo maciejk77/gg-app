@@ -17,7 +17,7 @@ class PlanInfo extends Component {
     const timeLeft = new Date(year, month, day).getTime();
     const ts = moment().countdown(
       timeLeft,
-      countdown.MONTHS | countdown.DAYS | countdown.HOURS | countdown.MINUTES
+      countdown.MONTHS|countdown.DAYS|countdown.HOURS|countdown.MINUTES
     );
 
     return (
