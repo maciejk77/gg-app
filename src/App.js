@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import PlanInfo from "./components/plan_info.js";
 import PlanCategory from "./components/plan_category.js";
 import PlanTitle from "./components/plan_title.js";
@@ -76,7 +77,10 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Route exact path="/" render={() => {
+          <Route
+            exact
+            path="/"
+            render={() => {
               return (
                 <div>
                   <PlanInfo
@@ -85,24 +89,28 @@ class App extends Component {
                     date={this.state.date}
                   />
                 </div>
-              )
-            }} 
+              );
+            }}
           />
-    
-          <Route path="/category" render={() => {
+
+          <Route
+            path="/category"
+            render={() => {
               return (
                 <div>
                   <PlanCategory
-                    data={this.state.data} 
+                    data={this.state.data}
                     getTitle={this.getTitle}
-                    step={1} 
+                    step={1}
                   />
                 </div>
-              )
-            }} 
+              );
+            }}
           />
 
-          <Route path="/title" render={() => {
+          <Route
+            path="/title"
+            render={() => {
               return (
                 <div>
                   <PlanTitle
@@ -112,11 +120,13 @@ class App extends Component {
                     step={2}
                   />
                 </div>
-              )
-            }} 
+              );
+            }}
           />
 
-          <Route path="/goals" render={() => {
+          <Route
+            path="/goals"
+            render={() => {
               return (
                 <div>
                   <PlanGoal
@@ -127,8 +137,8 @@ class App extends Component {
                     step={3}
                   />
                 </div>
-              )
-            }} 
+              );
+            }}
           />
         </div>
       </Router>

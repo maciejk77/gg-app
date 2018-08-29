@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
-import PlanItem from './plan_item.js';
-import '../styles/plan_category.css';
-import { Link } from 'react-router-dom';
-import StepsBar from './steps_bar';
-import propTypes from 'prop-types';
+import React, { Component } from "react";
+import PlanItem from "./plan_item.js";
+import { Link } from "react-router-dom";
+import StepsBar from "./steps_bar";
+import propTypes from "prop-types";
 
 class PlanCategory extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
         this.state = {
             selected: 0
@@ -55,8 +54,8 @@ class PlanCategory extends Component {
 } 
 
 PlanCategory.propTypes = {
-  // data: ,
-  // getTitle: ,
+  data: propTypes.array,
+  getTitle: propTypes.func,
   step: propTypes.number
 };
 

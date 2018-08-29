@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../styles/plan_item.css';
 import propTypes from 'prop-types';
 import cn from 'classnames';
 
