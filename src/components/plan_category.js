@@ -5,22 +5,6 @@ import StepsBar from "./steps_bar";
 import propTypes from "prop-types";
 
 class PlanCategory extends Component {
-  constructor(props) {
-    super(props);
-
-        this.state = {
-            selected: 0
-        }       
-    }
-
-    handle_click = (e) => {
-        e.preventDefault();
-		this.props.getTitle(this.props.data[parseInt(e.currentTarget.dataset.id)-1].goal);
-		this.setState({
-            selected: parseInt(e.currentTarget.dataset.id) - 1
-        });
-    }
-    
     render() {
         const render_list = this.props.data.map((item,i) => {
                 return (
@@ -29,8 +13,8 @@ class PlanCategory extends Component {
                         id={item.id}
                         goal={item.goal}
                         source={item.source}
-                        handle_click={(e) => this.handle_click(e)}
-                        selected={i === this.state.selected ? true : false}
+                        handle_click={(e) => this.props.handleClick(e)}
+                        selected={i === this.props.selected}
                     />
                 ) 
             });

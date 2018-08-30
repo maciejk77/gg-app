@@ -19,7 +19,8 @@ class App extends Component {
     },
     save_daily: 0,
     plan_title: "",
-    plan_subtitle: ""
+    plan_subtitle: "",
+    selectedCategory: 0
   };
   componentDidMount() {
     this.getStateDataFromLocalStorage();
@@ -29,6 +30,14 @@ class App extends Component {
     }
 
   };
+
+  handle_click = (e) => {
+    e.preventDefault();
+    this.getTitle(this.state.data[parseInt(e.currentTarget.dataset.id)-1].goal);
+    this.setState({
+      selectedCategory: parseInt(e.currentTarget.dataset.id) - 1
+    });
+}
 
   getTitle = title => {
     this.setState({
@@ -126,6 +135,8 @@ class App extends Component {
                   data={this.state.data}
                   getTitle={this.getTitle}
                   step={1}
+                  handleClick={this.handle_click}
+                  selected={this.state.selectedCategory}
                 />
               );
             }}
