@@ -23,9 +23,9 @@ class PlanCategory extends Component {
     }
     
     render() {
-        const selected_item_id = JSON.parse(localStorage.getItem('gg-selected-item'));
-        const item_selected = ((selected_item_id !== null)
-            ? selected_item_id
+        const selected_item = JSON.parse(localStorage.getItem('gg-selected-item'));
+        const selected_item_id = ((selected_item !== null)
+            ? selected_item
             : this.state.selected);
 
         const render_list = this.props.data.map((item,i) => {
@@ -36,7 +36,7 @@ class PlanCategory extends Component {
                         goal={item.goal}
                         source={item.source}
                         handle_click={(e) => this.handle_click(e)}
-                        selected={i===JSON.parse(localStorage.getItem('gg-selected-item'))  ? true : false}
+                        selected={i===selected_item_id  ? true : false}
                     />
                 ) 
             });
