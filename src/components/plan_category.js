@@ -15,13 +15,19 @@ class PlanCategory extends Component {
 
     handle_click = (e) => {
         e.preventDefault();
-		this.props.getTitle(this.props.data[parseInt(e.currentTarget.dataset.id)-1].goal);
-		this.setState({
+        this.setState({
             selected: parseInt(e.currentTarget.dataset.id) - 1
         });
+		this.props.getTitle(this.props.data[parseInt(e.currentTarget.dataset.id)-1].goal);
+		localStorage.setItem('gg-selected-item', parseInt(e.currentTarget.dataset.id) - 1);
     }
     
     render() {
+        const selected_item_id = JSON.parse(localStorage.getItem('gg-selected-item'));
+        const item_selected = ((selected_item_id !== null)
+            ? selected_item_id
+            : this.state.selected);
+
         const render_list = this.props.data.map((item,i) => {
                 return (
                     <PlanItem
@@ -30,7 +36,7 @@ class PlanCategory extends Component {
                         goal={item.goal}
                         source={item.source}
                         handle_click={(e) => this.handle_click(e)}
-                        selected={i === this.state.selected ? true : false}
+                        selected={i===JSON.parse(localStorage.getItem('gg-selected-item'))  ? true : false}
                     />
                 ) 
             });

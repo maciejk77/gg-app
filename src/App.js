@@ -23,11 +23,6 @@ class App extends Component {
   };
   componentDidMount() {
     this.getStateDataFromLocalStorage();
-    let key='gg-app-local-storage';
-    if (localStorage.hasOwnProperty(key)) {      
-      console.log(localStorage.getItem('gg-app-local-storage'));
-    }
-
   };
 
   getTitle = title => {
@@ -61,6 +56,7 @@ class App extends Component {
     date[name] = value;
 
     this.setState({ date }, this.calculateDaily);
+    console.log(this.state)
   };
 
   calculateDaily = () => {
@@ -94,7 +90,8 @@ class App extends Component {
           save_daily: JSON.parse(cachedData).save_daily,
           plan_title: JSON.parse(cachedData).plan_title,
           plan_subtitle: JSON.parse(cachedData).plan_subtitle,
-          date: JSON.parse(cachedData).date
+          date: JSON.parse(cachedData).date,
+          plan_selected: JSON.parse(cachedData).plan_secelcted
         });
       }
     }
@@ -126,6 +123,7 @@ class App extends Component {
                   data={this.state.data}
                   getTitle={this.getTitle}
                   step={1}
+                  plan_selected={this.state.plan_selected}
                 />
               );
             }}
@@ -140,6 +138,7 @@ class App extends Component {
                   plan_subtitle={this.state.plan_subtitle}
                   getSubtitle={this.getSubtitle}
                   step={2}
+                  plan_selected= {this.state.plan_selected}
                 />
               );
             }}
