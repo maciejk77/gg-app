@@ -1,0 +1,36 @@
+.plan-item {
+    width: 10%;
+    padding: .5rem;
+    text-align: center;
+    width: 30%;
+    margin: 0 1px 1px 0;
+    background-color: #fff;
+
+    &__image {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        color: #000;
+    }
+    
+    &--active {
+        background-color: lightblue;
+    }
+
+    &--nonactive {
+        background-color: #fff;
+    }
+}
+
+
+
+// .plan-item:hover {
+//   background-color: rgb(114, 214, 228);
+//   border-radius: 5rem;
+//   color: #fff;
+// }
+// .plan-item:active {
+//     background-color: rgb(69,178,192);
+//     border-radius: 5rem;
+//     color: #fff;
+//   }

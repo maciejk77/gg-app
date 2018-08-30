@@ -1,0 +1,38 @@
+.steps-bar {
+  width: 20rem;
+  margin: 0 auto;
+  height: 3rem;
+}
+
+.base-style {
+  border: 2px solid rgb(226,89,135);
+  width: 19px;
+  border-radius: 10px;
+  text-align: center;
+  color: rgb(226,89,135);
+  background-color: #fff;
+}
+
+.active {
+  background-color:rgb(226,89,135);
+  color: rgb(237,237,237);
+}
+
+.non-active {
+  border: 2px solid rgb(237,237,237);
+  color: rgb(237,237,237);
+}
+
+.step-icons {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: 15px;
+}
+
+.checkmark {
+  font-family: arial;
+  -ms-transform: scaleX(-1) rotate(-35deg); /* IE 9 */
+  -webkit-transform: scaleX(-1) rotate(-35deg); /* Chrome, Safari, Opera */
+  transform: scaleX(-1) rotate(-35deg);
+}

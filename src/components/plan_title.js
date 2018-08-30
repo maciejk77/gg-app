@@ -1,40 +1,63 @@
-import React, { Component } from  'react';
-import '../styles/plan_title.css';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
+import propTypes from "prop-types";
+
+import StepsBar from "./steps_bar";
 
 class PlanTitle extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            term: ''
-        }
-        this.handle_change = this.handle_change.bind(this)
-        this.handle_click = this.handle_click.bind(this)
-    }
+    this.state = {
+      term: ""
+    };
+  }
 
-    handle_change(e) {
-        e.preventDefault();
-        this.setState({
-            term: e.target.value
-        });
-    }
+  static contextTypes = {
+    router: propTypes.object.isRequired
+  };
 
-    handle_click() {
-        this.props.get_subtitle(this.state.term)
-        this.setState({term: ''})
-    }
+  handleChange = e => {
+    e.preventDefault();
+    this.setState({
+      term: e.target.value
+    });
+  };
 
-    render() {
-        return (
-            <div className="plan__title">
-                <div>Goal name: {this.props.plan_title}</div>
-                <div>Goal details: {this.props.plan_subtitle}</div>
-                <input value={this.state.term} onChange={this.handle_change}/>
-                <button onClick={this.handle_click}>Next</button>
-            </div>
-        )
-    }
+  handleClick = () => {
+    this.props.getSubtitle(this.state.term);
+    this.setState({ term: "" });
+    this.context.router.history.push("/goals");
+  };
 
+  render() {
+    return (
+      <div className="plan-title">
+        <StepsBar step={this.props.step} />
+        <h3 className="plan-title__title">Personalise</h3>
+        <label className="plan-title__label">Give your goal a name</label>
+        <input
+          className="plan-title__title-input"
+          value={this.state.term}
+          onChange={this.handleChange}
+        />
+        <div className="button-group">
+          <button className="button-group__next" onClick={this.handleClick}>
+            Next
+          </button>
+          <Link to="/category" className="button-group__back">
+            &lt;back
+          </Link>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default PlanTitle;
+PlanTitle.propTypes = {
+  getSubtitle: propTypes.func,
+  step: propTypes.number
+};
+
+export default withRouter(PlanTitle);

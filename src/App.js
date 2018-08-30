@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
 import PlanInfo from "./components/plan_info.js";
 import PlanCategory from "./components/plan_category.js";
 import PlanTitle from "./components/plan_title.js";
-import PlanGoals from "./components/plan_goals.js";
+import PlanGoal from "./components/plan_goal.js";
 import data from "./data/data.json";
 
 class App extends Component {
@@ -25,16 +27,15 @@ class App extends Component {
     if (localStorage.hasOwnProperty(key)) {      
       console.log(localStorage.getItem('gg-app-local-storage'));
     }
+  };
 
-  }
-
-  get_title = goal => {
+  getTitle = title => {
     this.setState({
-      plan_title: goal
+      plan_title: title
     });
   };
 
-  get_subtitle = description => {
+  getSubtitle = description => {
     this.setState({
       plan_subtitle: description
     });
@@ -67,20 +68,36 @@ class App extends Component {
     const { goal, saved } = this.state;
 
     const date = new Date(year, month, day);
-    const daysLefts = Math.ceil((date - new Date()) / (1000 * 60 * 60 * 24));
+    const daysLeft = Math.ceil((date - new Date()) / (1000 * 60 * 60 * 24));
     const target = goal > 0 && goal > saved ? goal - saved : 0;
+    const save_daily = (target / daysLeft || 0).toFixed(2);
 
-    const save_daily = (target / daysLefts || 0).toFixed(2);
-
-    if (daysLefts > 0) {
+    if (daysLeft > 0) {
       this.setState({ save_daily });
-    } else if (daysLefts === 0) {
+    } else if (daysLeft === 0) {
       this.setState({ save_daily: target.toFixed(2) });
     } else {
       this.setState({ save_daily: 0.0 });
     }
      // save to localStorage 
-    localStorage.setItem('gg-app-local-storage', JSON.stringify(this.state));
+     localStorage.setItem('gg-app-local-storage', JSON.stringify(this.state));
+  };
+  
+  getStateDataFromLocalStorage(){
+    let key='gg-app-local-storage';
+    if (localStorage.hasOwnProperty(key)) {
+     const cachedData = localStorage.getItem('gg-app-local-storage');
+      if(cachedData){
+        this.setState({
+          goal: JSON.parse(cachedData).goal,
+          saved: JSON.parse(cachedData).saved,
+          save_daily: JSON.parse(cachedData).save_daily,
+          plan_title: JSON.parse(cachedData).plan_title,
+          plan_subtitle: JSON.parse(cachedData).plan_subtitle,
+          date: JSON.parse(cachedData).date
+        });
+      }
+    }
   };
 
   getStateDataFromLocalStorage(){
@@ -102,26 +119,65 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <PlanInfo 
-        plan_deadLine={this.state.date}
-        plan_goal={this.state.goal}
-        plan_saved={this.state.saved}
-        plan_saving_percent={this.state.save_daily}
-        />
-        <PlanCategory data={this.state.data} get_title={this.get_title} />
-        <PlanTitle
-          plan_title={this.state.plan_title}
-          plan_subtitle={this.state.plan_subtitle}
-          get_subtitle={this.get_subtitle}
-        />
-        <PlanGoals
-          state={this.state}
-          changeGoal={this.onGoalChange}
-          changeSaved={this.onSavedChange}
-          handleDateChange={this.onDateChange}
-        />
-      </div>
+      <Router>
+        <div>
+          <Route
+            exact
+            path="/"
+            render={() => {
+              return (
+                <PlanInfo
+                  goal={this.state.goal}
+                  saved={this.state.saved}
+                  date={this.state.date}
+                />
+              );
+            }}
+          />
+
+          <Route
+            path="/category"
+            render={() => {
+              return (
+                <PlanCategory
+                  data={this.state.data}
+                  getTitle={this.getTitle}
+                  step={1}
+                />
+              );
+            }}
+          />
+
+          <Route
+            path="/title"
+            render={() => {
+              return (
+                <PlanTitle
+                  plan_title={this.state.plan_title}
+                  plan_subtitle={this.state.plan_subtitle}
+                  getSubtitle={this.getSubtitle}
+                  step={2}
+                />
+              );
+            }}
+          />
+
+          <Route
+            path="/goals"
+            render={() => {
+              return (
+                <PlanGoal
+                  state={this.state}
+                  changeGoal={this.onGoalChange}
+                  changeSaved={this.onSavedChange}
+                  handleDateChange={this.onDateChange}
+                  step={3}
+                />
+              );
+            }}
+          />
+        </div>
+      </Router>
     );
   }
 }
