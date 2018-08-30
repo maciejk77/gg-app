@@ -4,23 +4,24 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  
+
   &__next {
-    background-color: rgb(69,178,192);
+    background-color: rgb(69, 178, 192);
     color: #fff;
+    cursor: pointer;
     text-decoration: none;
     font-size: 1.2rem;
-    padding: .5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     border-radius: 2rem;
     border: none;
-    border-bottom: .2rem solid #000;
+    border-bottom: 0.2rem solid #000;
     margin: 0 auto;
   }
 
   &__back {
-    font-size: .9rem;
+    font-size: 0.9rem;
     text-decoration: none;
-    color: rgb(69,178,192);
+    color: rgb(69, 178, 192);
     display: block;
     margin-top: 5px;
   }
