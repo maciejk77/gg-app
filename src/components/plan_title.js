@@ -35,6 +35,7 @@ class PlanTitle extends Component {
     return (
       <div className="plan-title">
         <StepsBar step={this.props.step} />
+        <div>{this.props.plan_title}</div>
         <h3 className="plan-title__title">Personalise</h3>
         <label className="plan-title__label">Give your goal a name</label>
         <input
