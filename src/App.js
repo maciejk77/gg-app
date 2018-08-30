@@ -21,6 +21,14 @@ class App extends Component {
     plan_title: "",
     plan_subtitle: ""
   };
+  componentDidMount() {
+    this.getStateDataFromLocalStorage();
+    let key='gg-app-local-storage';
+    if (localStorage.hasOwnProperty(key)) {      
+      console.log(localStorage.getItem('gg-app-local-storage'));
+    }
+
+  };
 
   getTitle = title => {
     this.setState({
@@ -70,6 +78,25 @@ class App extends Component {
       this.setState({ save_daily: target.toFixed(2) });
     } else {
       this.setState({ save_daily: 0.0 });
+    }
+     // save to localStorage 
+     localStorage.setItem('gg-app-local-storage', JSON.stringify(this.state));
+  };
+  
+  getStateDataFromLocalStorage(){
+    let key='gg-app-local-storage';
+    if (localStorage.hasOwnProperty(key)) {
+     const cachedData = localStorage.getItem('gg-app-local-storage');
+      if(cachedData){
+        this.setState({
+          goal: JSON.parse(cachedData).goal,
+          saved: JSON.parse(cachedData).saved,
+          save_daily: JSON.parse(cachedData).save_daily,
+          plan_title: JSON.parse(cachedData).plan_title,
+          plan_subtitle: JSON.parse(cachedData).plan_subtitle,
+          date: JSON.parse(cachedData).date
+        });
+      }
     }
   };
 
