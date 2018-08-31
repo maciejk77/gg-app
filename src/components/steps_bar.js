@@ -22,7 +22,7 @@ const StepsBar = ({ step }) => {
       <div className="steps-bar">
         <div className="step-icons">{markup}</div>
 
-        <svg height="40" width="300">
+        {/* <svg height="40" width="300">
           {step === 2 ? (
             <line
               x1="0"
@@ -57,7 +57,7 @@ const StepsBar = ({ step }) => {
               style={{ stroke: "rgb(237,237,237)", strokeWidth: 3 }}
             />
           )}
-        </svg>
+        </svg> */}
       </div>
     </div>
   );

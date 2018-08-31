@@ -23,7 +23,7 @@ class App extends Component {
   };
   componentDidMount() {
     this.getStateDataFromLocalStorage();
-  };
+  }
 
   getTitle = title => {
     this.setState({
@@ -56,7 +56,7 @@ class App extends Component {
     date[name] = value;
 
     this.setState({ date }, this.calculateDaily);
-    console.log(this.state)
+    console.log(this.state);
   };
 
   calculateDaily = () => {
@@ -75,15 +75,15 @@ class App extends Component {
     } else {
       this.setState({ save_daily: 0.0 });
     }
-     // save to localStorage 
-     localStorage.setItem('gg-app-local-storage', JSON.stringify(this.state));
+    // save to localStorage
+    localStorage.setItem("gg-app-local-storage", JSON.stringify(this.state));
   };
-  
-  getStateDataFromLocalStorage(){
-    let key='gg-app-local-storage';
+
+  getStateDataFromLocalStorage() {
+    let key = "gg-app-local-storage";
     if (localStorage.hasOwnProperty(key)) {
-     const cachedData = localStorage.getItem('gg-app-local-storage');
-      if(cachedData){
+      const cachedData = localStorage.getItem("gg-app-local-storage");
+      if (cachedData) {
         this.setState({
           goal: JSON.parse(cachedData).goal,
           saved: JSON.parse(cachedData).saved,
@@ -95,69 +95,71 @@ class App extends Component {
         });
       }
     }
-  };
+  }
 
   render() {
     return (
       <Router>
         <div className="main-wrapper">
-          <Route
-            exact
-            path="/"
-            render={() => {
-              return (
-                <PlanInfo
-                  goal={this.state.goal}
-                  saved={this.state.saved}
-                  date={this.state.date}
-                />
-              );
-            }}
-          />
+          <div className="main-wrapper__inner">
+            <Route
+              exact
+              path="/"
+              render={() => {
+                return (
+                  <PlanInfo
+                    goal={this.state.goal}
+                    saved={this.state.saved}
+                    date={this.state.date}
+                  />
+                );
+              }}
+            />
 
-          <Route
-            path="/category"
-            render={() => {
-              return (
-                <PlanCategory
-                  data={this.state.data}
-                  getTitle={this.getTitle}
-                  step={1}
-                  plan_selected={this.state.plan_selected}
-                />
-              );
-            }}
-          />
+            <Route
+              path="/category"
+              render={() => {
+                return (
+                  <PlanCategory
+                    data={this.state.data}
+                    getTitle={this.getTitle}
+                    step={1}
+                    plan_selected={this.state.plan_selected}
+                  />
+                );
+              }}
+            />
 
-          <Route
-            path="/title"
-            render={() => {
-              return (
-                <PlanTitle
-                  plan_title={this.state.plan_title}
-                  plan_subtitle={this.state.plan_subtitle}
-                  getSubtitle={this.getSubtitle}
-                  step={2}
-                  plan_selected= {this.state.plan_selected}
-                />
-              );
-            }}
-          />
+            <Route
+              path="/title"
+              render={() => {
+                return (
+                  <PlanTitle
+                    plan_title={this.state.plan_title}
+                    plan_subtitle={this.state.plan_subtitle}
+                    getSubtitle={this.getSubtitle}
+                    step={2}
+                    plan_selected={this.state.plan_selected}
+                  />
+                );
+              }}
+            />
 
-          <Route
-            path="/goals"
-            render={() => {
-              return (
-                <PlanGoal
-                  state={this.state}
-                  changeGoal={this.onGoalChange}
-                  changeSaved={this.onSavedChange}
-                  handleDateChange={this.onDateChange}
-                  step={3}
-                />
-              );
-            }}
-          />
+            <Route
+              path="/goals"
+              render={() => {
+                return (
+                  <PlanGoal
+                    state={this.state}
+                    changeGoal={this.onGoalChange}
+                    changeSaved={this.onSavedChange}
+                    handleDateChange={this.onDateChange}
+                    step={3}
+                  />
+                );
+              }}
+            />
+          </div>
         </div>
       </Router>
     );

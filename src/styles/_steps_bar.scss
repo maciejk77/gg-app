@@ -1,26 +1,37 @@
 .steps-bar {
-  width: 20rem;
-  margin: 0 auto;
-  height: 3rem;
+  margin: 0 auto 50px;
+  position: relative;
+
+  &::after {
+    border-top: 2px solid rgb(226, 89, 135);
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 29px;
+    width: 100%;
+    z-index: -1;
+  }
 }
 
 .base-style {
-  border: 2px solid rgb(226,89,135);
-  width: 19px;
-  border-radius: 10px;
+  border: 2px solid rgb(226, 89, 135);
+  width: 30px;
+  height: 30px;
+  line-height: 25px;
+  border-radius: 50%;
   text-align: center;
-  color: rgb(226,89,135);
+  color: rgb(226, 89, 135);
   background-color: #fff;
 }
 
 .active {
-  background-color:rgb(226,89,135);
-  color: rgb(237,237,237);
+  background-color: rgb(226, 89, 135);
+  color: rgb(237, 237, 237);
 }
 
 .non-active {
-  border: 2px solid rgb(237,237,237);
-  color: rgb(237,237,237);
+  border: 2px solid rgb(237, 237, 237);
+  color: rgb(237, 237, 237);
 }
 
 .step-icons {
