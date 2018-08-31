@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-import cn from 'classnames';
 
 class PlanItem extends Component {
 
@@ -8,7 +7,7 @@ class PlanItem extends Component {
 		const { goal, source, id, selected } = this.props;
 		let activeClass = (selected ? 'plan-item--active' : 'plan-item--nonactive');
 		return (
-			<div className={cn("plan-item", activeClass)} data-id={id} onClick={this.props.handle_click}>
+			<div className={`plan-item ${activeClass}`} data-id={id} onClick={this.props.handle_click}>
 				<img className="plan-item__image" src={`/images/${source}.png`} style={{ width: "40%" }} alt="" />
 				{goal}
 			</div>
