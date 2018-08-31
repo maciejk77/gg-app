@@ -7,6 +7,7 @@ const StepsBar = ({ step }) => {
     .map((_, i) => {
       return (
         <div
+          key={i}
           className={[
             "base-style",
             i + 1 > step ? "non-active" : i + 1 < step ? "active" : ""

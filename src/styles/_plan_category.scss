@@ -1,13 +1,17 @@
 .plan-category {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-align: center;
-    width: 36rem;
-    height: 23rem;
-    
-    &__list {
-        padding: 1px;
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 2px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  height: 23rem;
+  text-align: center;
+  width: 36rem;
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 10px;
+
+    @media screen and (min-width: 640px) {
+      grid-template-columns: 1fr 1fr 1fr;
     }
+  }
 }

@@ -76,7 +76,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
+        <div className="main-wrapper">
           <Route
             exact
             path="/"

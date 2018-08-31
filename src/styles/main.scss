@@ -5,3 +5,12 @@
 @import "plan_item";
 @import "steps_bar";
 @import "buttons";
+
+* {
+  box-sizing: border-box;
+}
+
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+}

@@ -13,9 +13,14 @@
   }
 
   &__title-input {
-    padding: 4px;
-    width: 70%;
-    outline: none;
+    border: 1px solid #ccc;
     font-size: 1rem;
+    outline: none;
+    padding: 4px;
+    width: 90%;
+
+    @media screen and (min-widht: 640px) {
+      width: 60%;
+    }
   }
 }
